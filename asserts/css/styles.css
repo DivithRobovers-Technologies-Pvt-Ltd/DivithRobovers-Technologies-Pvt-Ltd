@@ -1,0 +1,100 @@
+body {
+    font-family: 'Inter', sans-serif;
+    /* Ensure footer doesn't overlap content */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+main {
+    flex-grow: 1;
+}
+/* Custom styles for glowing effects */
+.glow-shadow {
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.5), 0 0 5px rgba(59, 130, 246, 0.3);
+
+}
+.section-title {
+    /* Uses Tailwind @apply directives */
+    @apply text-3xl font-bold text-center text-gray-900 sm:text-4xl;
+    animation: fadeInOut 3s ease-in-out;
+}
+.section-subtitle {
+    /* Uses Tailwind @apply directives */
+    @apply mt-4 text-lg text-center text-gray-600 max-w-3xl mx-auto;
+    animation: fadeInOut 3s ease-in-out 0.5s;
+}
+@keyframes fadeInOut {
+    0% { opacity: 0; transform: translateY(20px); }
+    20% { opacity: 1; transform: translateY(0); }
+    80% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(-20px); }
+}
+/****************  c444ba8fb68d4061b7934d7962c3542d  ****************/
+    @apply mt-4 text-lg text-center text-gray-600 max-w-3xl mx-auto;
+}
+.card {
+    /* Uses Tailwind @apply directives */
+    @apply bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-2xl;
+}
+/* Style for the active nav link */
+.nav-link.active {
+    /* Uses Tailwind @apply directives */
+    @apply text-blue-600 font-bold;
+}
+/* Custom styles for the slider */
+.slider-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.75rem; /* rounded-xl equivalent */
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-xl equivalent */
+}
+.slider-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+.slider-slide {
+    flex-shrink: 0;
+    width: 100%;
+}
+.slider-dots {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+}
+.slider-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    opacity: 0.5;
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+.slider-dot.active {
+    opacity: 1;
+    background-color: #3b82f6; /* Blue-600 */
+}
+.slider-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+    transition: background 0.3s;
+}
+.slider-button:hover {
+    background: rgba(0, 0, 0, 0.7);
+}
+.slider-button-prev {
+    left: 10px;
+}
+.slider-button-next {
+    right: 10px;
+}
