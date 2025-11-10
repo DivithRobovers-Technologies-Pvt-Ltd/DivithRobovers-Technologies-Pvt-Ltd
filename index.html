@@ -6,61 +6,148 @@
     <title>Divith Roboverse Technologies - Engineering Tomorrow, Today</title>
     <meta name="description" content="Divith Roboverse Technologies Pvt Ltd - Hands-on Robotics, AI, and STEAM programs for schools and learners. Learn today, lead tomorrow." />
     <meta name="keywords" content="Robotics, AI, STEAM, Education, Coding, Drones, Innovation Labs" />
-    <!-- Favicon - UPDATED URL -->
+    <!-- Favicon - Raw URL Check -->
     <link rel="icon" href="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/refs/heads/main/asserts/logo/DivithRobovers.png" type="image/png" />
 
-    <!-- Fonts (Using Inter for consistency) -->
+    <!-- Fonts (Inter is clean and modern) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
 
     <!-- Bulma CSS (CDN) -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
 
-    <!-- Custom Styles (for scroll-smooth, non-bulma utilities, and specific styling) -->
-    <link rel="stylesheet" href="/asserts/css/style.css" />
+    <!-- Font Awesome (for icons) -->
+    <script src="https://use.fontawesome.com/releases/v6.5.1/js/all.js"></script>
 
     <style>
-        /* Custom styles to match Tailwind spacing/sizing and fix Bulma overrides */
-        body { font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background-color: #f9fafb; }
-        .hero-slider-height { height: 600px; }
-        .slider-track { display: flex; transition: transform 0.5s ease-in-out; height: 100%; }
+        /* BASE STYLES & TYPOGRAPHY */
+        body {
+            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f5f7f9; /* Light, soft background */
+            line-height: 1.6;
+            color: #364049; /* Darker primary text color */
+        }
+        .title, .subtitle {
+            font-weight: 700;
+        }
+        .title.is-1 { font-size: 3rem; }
+        .title.is-2 { font-size: 2.5rem; }
+
+        /* NAVBAR ENHANCEMENT */
+        .navbar {
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            background-color: #ffffff;
+        }
+        .navbar-item.is-active, .navbar-item:hover {
+            color: #209CEE !important; /* Bulma Info Color */
+            border-bottom: 3px solid #209CEE;
+        }
+
+        /* SECTION STYLING */
+        .section-padding { padding: 4rem 1.5rem; }
+        @media screen and (min-width: 769px) {
+            .section-padding { padding: 6rem 1.5rem; }
+        }
+
+        /* HERO SLIDER STYLING */
+        .hero-slider-height { height: 400px; }
+        @media screen and (min-width: 769px) {
+            .hero-slider-height { height: 600px; }
+        }
+        .slider-track { display: flex; transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94); height: 100%; }
         .slider-slide { min-width: 100%; height: 100%; position: relative; }
-        .slider-slide img { width: 100%; height: 100%; object-fit: cover; }
-        .slider-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.4); display: flex; align-items: center; justify-content: center; }
-        .slider-content { text-align: center; color: white; padding: 0.5rem; }
-        .slider-button { position: absolute; top: 50%; transform: translateY(-50%); z-index: 10; background-color: rgba(255, 255, 255, 0.8); border-radius: 50%; padding: 0.5rem; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); transition: background-color 0.3s; border: none; cursor: pointer; }
-        .slider-button:hover { background-color: #fff; }
+        .slider-slide img, .slider-slide video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* Ensure media is visible and contained */
+            display: block;
+        }
+        .slider-overlay {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(0, 0, 0, 0.55);
+            display: flex; align-items: center; justify-content: center;
+        }
+        .slider-content { text-align: center; color: white; padding: 1rem; }
+        .slider-button {
+            position: absolute; top: 50%; transform: translateY(-55%); z-index: 20;
+            background-color: rgba(255, 255, 255, 0.2);
+            border: none; border-radius: 50%; padding: 0.75rem;
+            cursor: pointer; transition: background-color 0.3s, transform 0.3s;
+        }
+        .slider-button:hover { background-color: rgba(255, 255, 255, 0.9); transform: translateY(-55%) scale(1.1); color: #363636; }
         .slider-button-prev { left: 1rem; }
         .slider-button-next { right: 1rem; }
-        .slider-dots { position: absolute; bottom: 1rem; left: 50%; transform: translateX(-50%); display: flex; gap: 0.5rem; }
-        .dot { width: 10px; height: 10px; border-radius: 50%; background-color: rgba(255, 255, 255, 0.5); cursor: pointer; transition: background-color 0.3s; }
-        .dot.active { background-color: #fff; }
+        .slider-dots { position: absolute; bottom: 1.5rem; left: 50%; transform: translateX(-50%); display: flex; gap: 0.6rem; z-index: 10; }
+        .dot { width: 12px; height: 12px; border-radius: 50%; background-color: rgba(255, 255, 255, 0.5); border: 2px solid transparent; cursor: pointer; transition: background-color 0.3s, border-color 0.3s; }
+        .dot.active { background-color: #fff; border-color: #209CEE; }
 
-        /* Custom Section Spacing */
-        .section-padding { padding-top: 5rem; padding-bottom: 5rem; }
+        /* CARD STYLING (Services & Technology) */
+        .card {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(32, 156, 238, 0.2);
+        }
 
-        /* Card styles for Services Section */
-        .service-card { display: flex; flex-direction: column; height: 100%; transition: transform 0.3s, box-shadow 0.3s; }
-        .service-card:hover { transform: translateY(-0.25rem); box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1); }
-        .service-card-image { height: 11rem; overflow: hidden; }
-        .service-card-image img { height: 100%; width: 100%; object-fit: cover; }
-        .service-card-footer img { width: 100%; height: 5rem; object-fit: cover; }
-        .technology-card:hover { transform: scale(1.05); box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); }
+        .service-card-image {
+            height: 150px;
+            overflow: hidden;
+        }
+        .service-card-image img {
+            height: 100%; width: 100%; object-fit: cover;
+            transition: transform 0.5s;
+        }
+        .card:hover .service-card-image img {
+            transform: scale(1.05);
+        }
+
+        .technology-card {
+            border-radius: 8px;
+            text-align: center;
+            padding: 1.5rem;
+            transition: all 0.3s;
+            cursor: pointer;
+            height: 100%;
+        }
+        .technology-card:hover {
+            background-color: #e6f3ff;
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(32, 156, 238, 0.1);
+        }
+
+        /* FOOTER STYLING */
+        .footer .box {
+            border-radius: 8px;
+            box-shadow: none;
+            border: 1px solid #444;
+            transition: background-color 0.3s;
+        }
+        .footer .box:hover {
+            background-color: #2b2b2b !important;
+        }
     </style>
 </head>
 <body>
-    <!-- Skip to content (Bulma equivalent is usually not a dedicated element, but keeping for accessibility) -->
-    <a href="#main" class="is-sr-only focus:not-is-sr-only focus:is-absolute button is-info is-p-3 is-m-3">Skip to content</a>
+    <!-- Accessibility Skip Link (Kept for compliance) -->
+    <a href="#main" class="is-sr-only focus:not-is-sr-only button is-info" style="position: absolute; z-index: 100;">Skip to content</a>
 
     <!-- Header & Navigation -->
     <header>
-        <nav class="navbar is-fixed-top is-transparent" role="navigation" aria-label="main navigation">
+        <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
             <div class="container">
                 <div class="navbar-brand">
                     <a href="#" class="navbar-item nav-link" data-page="page-home" aria-label="Go to homepage">
-                        <!-- Logo - UPDATED URL -->
-                        <img src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/refs/heads/main/asserts/Images/Logo/logo.png" alt="Divith Roboverse Logo" height="40" width="auto" />
+                        <!-- Logo - Raw URL Check -->
+                        <img src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/refs/heads/main/asserts/Images/Logo/logo.png" alt="Divith Roboverse Logo" height="40" style="max-height: 40px;" />
                     </a>
                     <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample" id="mobile-menu-button">
                         <span aria-hidden="true"></span>
@@ -85,86 +172,92 @@
 
     <!-- Hero Slider Section -->
     <section id="hero-slider" class="hero-slider-height is-relative" aria-label="Hero slider">
-        <div class="slider-track">
-            <!-- Slide 1 - UPDATED URL -->
+        <div class="slider-track" id="hero-slider-track">
+            <!-- Slide 1 - Raw URL Check -->
             <div class="slider-slide">
                 <img src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/refs/heads/main/asserts/Images/1.png" alt="Robotics Education" />
                 <div class="slider-overlay">
                     <div class="slider-content">
-                        <h2 class="title is-1 has-text-white is-size-3-mobile is-size-1-tablet is-size-1-desktop">Empowering Young Minds</h2>
-                        <p class="subtitle is-4 has-text-white is-size-6-mobile is-size-4-tablet">Discover the world of robotics and innovation</p>
-                        <a href="#" class="button is-primary is-large nav-link" data-page="page-services" aria-label="Explore Our Programs">
-                            Explore Our Programs
+                        <h2 class="title is-1 has-text-white is-size-3-mobile is-size-1-tablet is-spaced">Empowering Young Minds</h2>
+                        <p class="subtitle is-4 has-text-white is-size-6-mobile is-size-5-tablet">Discover the world of robotics and innovation</p>
+                        <a href="#" class="button is-info is-large nav-link is-rounded is-m-t-4" data-page="page-services" aria-label="Explore Our Programs">
+                            <span class="icon is-large"><i class="fas fa-rocket"></i></span>
+                            <span>Explore Our Programs</span>
                         </a>
                     </div>
                 </div>
             </div>
 
-            <!-- Slide 2 - UPDATED URL -->
+            <!-- Slide 2 - Raw URL Check -->
             <div class="slider-slide">
                 <img src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/refs/heads/main/asserts/Images/2.png" alt="AI Learning" />
                 <div class="slider-overlay">
                     <div class="slider-content">
-                        <h2 class="title is-1 has-text-white is-size-3-mobile is-size-1-tablet">Learn AI & Python</h2>
-                        <p class="subtitle is-4 has-text-white is-size-6-mobile is-size-4-tablet">Master the technologies of tomorrow</p>
-                        <a href="#" class="button is-success is-large nav-link" data-page="page-services" aria-label="Start Learning Today">
-                            Start Learning Today
+                        <h2 class="title is-1 has-text-white is-size-3-mobile is-size-1-tablet is-spaced">Learn AI & Python</h2>
+                        <p class="subtitle is-4 has-text-white is-size-6-mobile is-size-5-tablet">Master the technologies of tomorrow</p>
+                        <a href="#" class="button is-success is-large nav-link is-rounded is-m-t-4" data-page="page-services" aria-label="Start Learning Today">
+                            <span class="icon is-large"><i class="fas fa-brain"></i></span>
+                            <span>Start Learning Today</span>
                         </a>
                     </div>
                 </div>
             </div>
 
-            <!-- Slide 3 - UPDATED URL -->
+            <!-- Slide 3 - Raw URL Check -->
             <div class="slider-slide">
                 <img src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/refs/heads/main/asserts/Images/3.png" alt="Innovation Labs" />
                 <div class="slider-overlay">
                     <div class="slider-content">
-                        <h2 class="title is-1 has-text-white is-size-3-mobile is-size-1-tablet">Innovation Labs</h2>
-                        <p class="subtitle is-4 has-text-white is-size-6-mobile is-size-4-tablet">Transform your school into a hub of creativity</p>
-                        <a href="#" class="button is-warning is-large nav-link" data-page="page-about" aria-label="Partner With Us">
-                            Partner With Us
+                        <h2 class="title is-1 has-text-white is-size-3-mobile is-size-1-tablet is-spaced">Innovation Labs</h2>
+                        <p class="subtitle is-4 has-text-white is-size-6-mobile is-size-5-tablet">Transform your school into a hub of creativity</p>
+                        <a href="#" class="button is-warning is-large nav-link is-rounded is-m-t-4" data-page="page-about" aria-label="Partner With Us">
+                            <span class="icon is-large"><i class="fas fa-lightbulb"></i></span>
+                            <span>Partner With Us</span>
                         </a>
                     </div>
                 </div>
             </div>
 
-            <!-- Slide 4 - UPDATED URL -->
+            <!-- Slide 4 - Raw URL Check -->
             <div class="slider-slide">
                 <img src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/refs/heads/main/asserts/Images/4.png" alt="Innovation Labs" />
                 <div class="slider-overlay">
                     <div class="slider-content">
-                        <h2 class="title is-1 has-text-white is-size-3-mobile is-size-1-tablet">Innovation Labs</h2>
-                        <p class="subtitle is-4 has-text-white is-size-6-mobile is-size-4-tablet">Transform your school into a hub of creativity</p>
-                        <a href="#" class="button is-warning is-large nav-link" data-page="page-about" aria-label="Partner With Us">
-                            Partner With Us
+                        <h2 class="title is-1 has-text-white is-size-3-mobile is-size-1-tablet is-spaced">Innovation Labs</h2>
+                        <p class="subtitle is-4 has-text-white is-size-6-mobile is-size-5-tablet">Transform your school into a hub of creativity</p>
+                        <a href="#" class="button is-warning is-large nav-link is-rounded is-m-t-4" data-page="page-about" aria-label="Partner With Us">
+                            <span class="icon is-large"><i class="fas fa-lightbulb"></i></span>
+                            <span>Partner With Us</span>
                         </a>
                     </div>
                 </div>
             </div>
 
-             <!-- Slide 5 - UPDATED URL -->
+             <!-- Slide 5 - Raw URL Check -->
             <div class="slider-slide">
                 <img src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/refs/heads/main/asserts/Images/5.png" alt="Innovation Labs" />
                 <div class="slider-overlay">
                     <div class="slider-content">
-                        <h2 class="title is-1 has-text-white is-size-3-mobile is-size-1-tablet">Innovation Labs</h2>
-                        <p class="subtitle is-4 has-text-white is-size-6-mobile is-size-4-tablet">Transform your school into a hub of creativity</p>
-                        <a href="#" class="button is-warning is-large nav-link" data-page="page-about" aria-label="Partner With Us">
-                            Partner With Us
+                        <h2 class="title is-1 has-text-white is-size-3-mobile is-size-1-tablet is-spaced">Innovation Labs</h2>
+                        <p class="subtitle is-4 has-text-white is-size-6-mobile is-size-5-tablet">Transform your school into a hub of creativity</p>
+                        <a href="#" class="button is-warning is-large nav-link is-rounded is-m-t-4" data-page="page-about" aria-label="Partner With Us">
+                            <span class="icon is-large"><i class="fas fa-lightbulb"></i></span>
+                            <span>Partner With Us</span>
                         </a>
                     </div>
                 </div>
             </div>
 
-             <!-- Slide 6 - UPDATED URL -->
+             <!-- Slide 6 - Raw URL Check -->
             <div class="slider-slide">
                 <img src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/refs/heads/main/asserts/Images/6.png" alt="Innovation Labs" />
                 <div class="slider-overlay">
                     <div class="slider-content">
-                        <h2 class="title is-1 has-text-white is-size-3-mobile is-size-1-tablet">Innovation Labs</h2>
-                        <p class="subtitle is-4 has-text-white is-size-6-mobile is-size-4-tablet">Transform your school into a hub of creativity</p>
-                        <a href="#" class="button is-warning is-large nav-link" data-page="page-about" aria-label="Partner With Us">
-                            Partner With Us
+                        <h2 class="title is-1 has-text-white is-size-3-mobile is-size-1-tablet is-spaced">Innovation Labs</h2>
+                        <p class="subtitle is-4 has-text-white is-size-6-mobile is-size-5-tablet">Transform your school into a hub of creativity</p>
+                        <a href="#" class="button is-warning is-large nav-link is-rounded is-m-t-4" data-page="page-about" aria-label="Partner With Us">
+                            <span class="icon is-large"><i class="fas fa-lightbulb"></i></span>
+                            <span>Partner With Us</span>
                         </a>
                     </div>
                 </div>
@@ -172,15 +265,15 @@
         </div>
 
         <!-- Slider Controls -->
-        <button class="slider-button slider-button-prev" aria-label="Previous slide">
-            <span class="icon"><i class="fas fa-chevron-left"></i></span>
+        <button class="slider-button slider-button-prev" aria-label="Previous slide" id="hero-prev">
+            <span class="icon is-size-4"><i class="fas fa-chevron-left"></i></span>
         </button>
-        <button class="slider-button slider-button-next" aria-label="Next slide">
-            <span class="icon"><i class="fas fa-chevron-right"></i></span>
+        <button class="slider-button slider-button-next" aria-label="Next slide" id="hero-next">
+            <span class="icon is-size-4"><i class="fas fa-chevron-right"></i></span>
         </button>
 
         <!-- Slider Dots (JS will initialize these) -->
-        <div class="slider-dots" aria-hidden="true"></div>
+        <div class="slider-dots" id="hero-dots" aria-hidden="true"></div>
     </section>
 
     <!-- Main Content Area -->
@@ -188,27 +281,26 @@
 
         <!-- Page 1: Home -->
         <div id="page-home" class="page-content">
-            <section id="home-section" class="section section-padding is-relative" style="overflow: hidden;">
-                <div class="container has-text-centered">
-                    <!-- Background blobs removed for Bulma simplicity, focusing on core content -->
+            <section id="home-section" class="section section-padding has-text-centered">
+                <div class="container">
                     <h1 class="title is-1 is-spaced is-size-3-mobile is-size-1-tablet">
                          Learn Today, Lead Tomorrow - Your Future Starts Now
                         <br />
                         <span class="has-text-info">Welcome to the DivithRoboverse.</span>
                     </h1>
-                    <p class="subtitle is-5 is-size-6-mobile is-size-5-tablet has-text-grey-dark is-max-w-3xl is-mx-auto">
+                    <p class="subtitle is-5 is-size-6-mobile is-size-5-tablet has-text-grey-dark is-max-w-3xl is-mx-auto" style="max-width: 768px; margin: 1.5rem auto 3rem auto;">
                         DivithRoboverse Technologies Pvt Ltd is pioneering the future of education by immersing young minds in the dynamic worlds of Robotics, AI, and STEAM. We move beyond textbooks to hands-on learning that builds confidence and real skills.
                     </p>
 
                     <div class="field is-grouped is-grouped-centered is-m-t-6">
                         <p class="control">
-                            <a href="#" class="button is-info is-large nav-link" data-page="page-services">
+                            <a href="#" class="button is-info is-large nav-link is-rounded" data-page="page-services">
                                 <span class="icon"><i class="fas fa-rocket"></i></span>
                                 <span>Explore Future Skills</span>
                             </a>
                         </p>
                         <p class="control">
-                            <a href="#" class="button is-light is-large nav-link" data-page="page-about">
+                            <a href="#" class="button is-light is-large nav-link is-rounded" data-page="page-about">
                                 <span class="icon"><i class="fas fa-lightbulb"></i></span>
                                 <span>Launch an Innovation Lab</span>
                             </a>
@@ -222,95 +314,86 @@
         <div id="page-services" class="page-content is-hidden">
             <section id="services-section" class="section section-padding has-background-light">
             <div class="container">
-                <h2 class="title is-2 has-text-grey-dark is-size-4-mobile is-size-2-tablet">The DivithRoboverse Ecosystem: Learn, Partner, and Grow</h2>
-                <p class="subtitle is-5 has-text-grey-dark is-max-w-3xl">
+                <h2 class="title is-2 has-text-grey-dark is-size-4-mobile is-size-2-tablet has-text-centered">The DivithRoboverse Ecosystem: Learn, Partner, and Grow</h2>
+                <p class="subtitle is-5 has-text-grey-dark has-text-centered" style="max-width: 800px; margin: 0.5rem auto 3rem auto;">
                 We offer three high-impact models designed for maximum reach and results, catering to students, institutions, and business partners.
                 </p>
 
                 <!-- Responsive Cards Grid -->
                 <div class="columns is-multiline is-m-t-6 is-variable is-8">
 
-                <!-- Card 1: Roboverse School Integration (B2B) - UPDATED URL -->
+                <!-- Card 1: Roboverse School Integration (B2B) - Raw URL Check -->
                 <div class="column is-one-third-desktop is-half-tablet is-full-mobile">
-                    <div class="card service-card">
+                    <div class="card">
                         <div class="card-image service-card-image">
-                            <figure class="image">
+                            <figure class="image is-4by3">
                                 <img src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/refs/heads/main/asserts/Images/services/1.png" alt="Roboverse School Integration" />
                             </figure>
                         </div>
                         <div class="card-content is-flex is-flex-direction-column is-flex-grow-1">
-                            <p class="is-size-7 has-text-grey has-text-weight-semibold is-uppercase">Product / Service</p>
-                            <h3 class="title is-4 has-text-info">Roboverse School Integration (B2B)</h3>
+                            <p class="is-size-7 has-text-grey has-text-weight-semibold is-uppercase is-m-b-2">School Integration</p>
+                            <h3 class="title is-4 has-text-info is-m-b-3">Roboverse School Integration (B2B)</h3>
 
-                            <div class="content is-m-t-4 is-flex-grow-1">
-                                <p><strong class="has-text-grey-dark">Focus & Clarity:</strong> Complete Curriculum Outsourcing: We partner with schools to embed Robotics, AI, Coding, and Drones into daily syllabi and after-school programs.</p>
-                                <p><strong class="has-text-grey-dark">Core Value Proposition:</strong> Future-Proof Your School: We make advanced technology education accessible and mandatory, ensuring every student gains workplace-ready skills.</p>
+                            <div class="content is-flex-grow-1">
+                                <p><strong class="has-text-grey-dark">Focus:</strong> Complete Curriculum Outsourcing: We partner with schools to embed Robotics, AI, Coding, and Drones into daily syllabi and after-school programs.</p>
+                                <p><strong class="has-text-grey-dark">Value:</strong> Future-Proof Your School: We make advanced technology education accessible and mandatory.</p>
                             </div>
 
                             <div class="is-flex is-justify-content-space-between is-align-items-center is-m-t-5">
-                                <a href="#" class="button is-info is-small">Learn More</a>
+                                <a href="#" class="button is-info is-small is-rounded">Learn More</a>
                                 <span class="tag is-light is-info">B2B</span>
                             </div>
                         </div>
-                        <footer class="card-footer service-card-footer">
-                            <img src="https://placehold.co/1200x200/bfdbfe/1e3a8a?text=Partner+with+Us" alt="Partner with Us" />
-                        </footer>
                     </div>
                 </div>
 
-                <!-- Card 2: Roboverse Learning Hubs (B2C) - UPDATED URL -->
+                <!-- Card 2: Roboverse Learning Hubs (B2C) - Raw URL Check -->
                 <div class="column is-one-third-desktop is-half-tablet is-full-mobile">
-                    <div class="card service-card">
+                    <div class="card">
                         <div class="card-image service-card-image">
-                            <figure class="image">
+                            <figure class="image is-4by3">
                                 <img src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/refs/heads/main/asserts/Images/services/2.png" alt="Roboverse Learning Hubs" />
                             </figure>
                         </div>
                         <div class="card-content is-flex is-flex-direction-column is-flex-grow-1">
-                            <p class="is-size-7 has-text-grey has-text-weight-semibold is-uppercase">Product / Service</p>
-                            <h3 class="title is-4 has-text-success">Roboverse Learning Hubs (B2C)</h3>
+                            <p class="is-size-7 has-text-grey has-text-weight-semibold is-uppercase is-m-b-2">Learning Centers</p>
+                            <h3 class="title is-4 has-text-success is-m-b-3">Roboverse Learning Hubs (B2C)</h3>
 
-                            <div class="content is-m-t-4 is-flex-grow-1">
-                                <p><strong class="has-text-grey-dark">Focus & Clarity:</strong> Specialized Skill Mastery: Our centers offer focused courses across technologies: Robotics, AI (Python), IoT, 3D printing, and more.</p>
-                                <p><strong class="has-text-grey-dark">Core Value Proposition:</strong> Unleash Core Abilities: Designed to significantly boost observation, critical thinking, and hands-on problem solving.</p>
+                            <div class="content is-flex-grow-1">
+                                <p><strong class="has-text-grey-dark">Focus:</strong> Specialized Skill Mastery: Our centers offer focused courses across technologies: Robotics, AI (Python), IoT, 3D printing, and more.</p>
+                                <p><strong class="has-text-grey-dark">Value:</strong> Unleash Core Abilities: Designed to significantly boost observation, critical thinking, and hands-on problem solving.</p>
                             </div>
 
                             <div class="is-flex is-justify-content-space-between is-align-items-center is-m-t-5">
-                                <a href="#" class="button is-success is-small">Find a Hub</a>
+                                <a href="#" class="button is-success is-small is-rounded">Find a Hub</a>
                                 <span class="tag is-light is-success">B2C</span>
                             </div>
                         </div>
-                        <footer class="card-footer service-card-footer">
-                            <img src="https://placehold.co/1200x200/d1fae5/065f46?text=Join+Our+Centers" alt="Join Our Centers" />
-                        </footer>
                     </div>
                 </div>
 
-                <!-- Card 3: Robo Kits & At-Home Learning - UPDATED URL -->
+                <!-- Card 3: Robo Kits & At-Home Learning - Raw URL Check -->
                 <div class="column is-one-third-desktop is-half-tablet is-full-mobile">
-                    <div class="card service-card">
+                    <div class="card">
                         <div class="card-image service-card-image">
-                            <figure class="image">
+                            <figure class="image is-4by3">
                                 <img src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/refs/heads/main/asserts/Images/services/3.png" alt="Robo Kits & At-Home Learning" />
                             </figure>
                         </div>
                         <div class="card-content is-flex is-flex-direction-column is-flex-grow-1">
-                            <p class="is-size-7 has-text-grey has-text-weight-semibold is-uppercase">Product / Service</p>
-                            <h3 class="title is-4 has-text-warning">Robo Kits & At-Home Learning</h3>
+                            <p class="is-size-7 has-text-grey has-text-weight-semibold is-uppercase is-m-b-2">Products</p>
+                            <h3 class="title is-4 has-text-warning is-m-b-3">Robo Kits & At-Home Learning</h3>
 
-                            <div class="content is-m-t-4 is-flex-grow-1">
-                                <p><strong class="has-text-grey-dark">Focus & Clarity:</strong> Innovation on Demand: The 'My Robo Box' kits are proprietary, hands-on learning systems structured for self-paced discovery.</p>
-                                <p><strong class="has-text-grey-dark">Core Value Proposition:</strong> Engage, Don't Distract: A constructive alternative to passive screen time, transforming your child's curiosity into skill.</p>
+                            <div class="content is-flex-grow-1">
+                                <p><strong class="has-text-grey-dark">Focus:</strong> Innovation on Demand: The 'My Robo Box' kits are proprietary, hands-on learning systems structured for self-paced discovery.</p>
+                                <p><strong class="has-text-grey-dark">Value:</strong> Engage, Don't Distract: A constructive alternative to passive screen time.</p>
                             </div>
 
                             <div class="is-flex is-justify-content-space-between is-align-items-center is-m-t-5">
-                                <a href="#" class="button is-warning is-small">Shop Kits</a>
+                                <a href="#" class="button is-warning is-small is-rounded">Shop Kits</a>
                                 <span class="tag is-light is-warning">Kits</span>
                             </div>
                         </div>
-                        <footer class="card-footer service-card-footer">
-                            <img src="https://placehold.co/1200x200/ffedd5/92400e?text=Start+Building+Today" alt="Start Building Today" />
-                        </footer>
                     </div>
                 </div>
 
@@ -318,80 +401,80 @@
 
                 <!-- Technologies Section -->
                 <div class="is-m-t-6">
-                    <h2 class="title is-2 has-text-grey is-size-4-mobile is-size-2-tablet">Technologies We Offer</h2>
-                    <p class="is-size-7 has-text-grey-light has-text-weight-semibold is-m-b-5">Explore our comprehensive selection of technologies.</p>
+                    <h2 class="title is-2 has-text-grey is-size-4-mobile is-size-2-tablet has-text-centered">Technologies We Offer</h2>
+                    <p class="subtitle is-6 has-text-grey-dark has-text-centered is-m-b-5">Explore our comprehensive selection of technologies taught hands-on.</p>
                     <div class="columns is-multiline is-mobile is-m-t-6">
 
-                        <div class="column is-half-mobile is-one-quarter-tablet">
-                            <div class="box has-text-centered technology-card">
+                        <!-- Tech Logo 1 - Raw URL Check -->
+                        <div class="column is-half-mobile is-one-quarter-tablet is-one-fifth-desktop">
+                            <div class="box technology-card">
                                 <figure class="image is-64x64 is-inline-block is-m-b-3">
-                                    <!-- UPDATED URL -->
                                     <img src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/refs/heads/main/asserts/Images/Technical%20Logo%20Images/8.PNG" alt="Robotics" />
                                 </figure>
-                                <h3 class="title is-5 has-text-info">Robotics</h3>
+                                <h3 class="title is-6 has-text-info">Robotics</h3>
                             </div>
                         </div>
-                        <div class="column is-half-mobile is-one-quarter-tablet">
-                            <div class="box has-text-centered technology-card">
+                        <!-- Tech Logo 2 - Raw URL Check -->
+                        <div class="column is-half-mobile is-one-quarter-tablet is-one-fifth-desktop">
+                            <div class="box technology-card">
                                 <figure class="image is-64x64 is-inline-block is-m-b-3">
-                                    <!-- UPDATED URL -->
                                     <img src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/refs/heads/main/asserts/Images/Technical%20Logo%20Images/7.PNG" alt="AI using Python" />
                                 </figure>
-                                <h3 class="title is-5 has-text-info">AI using Python</h3>
+                                <h3 class="title is-6 has-text-info">AI using Python</h3>
                             </div>
                         </div>
-                        <div class="column is-half-mobile is-one-quarter-tablet">
-                            <div class="box has-text-centered technology-card">
+                        <!-- Tech Logo 3 - Raw URL Check -->
+                        <div class="column is-half-mobile is-one-quarter-tablet is-one-fifth-desktop">
+                            <div class="box technology-card">
                                 <figure class="image is-64x64 is-inline-block is-m-b-3">
-                                    <!-- UPDATED URL -->
                                     <img src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/refs/heads/main/asserts/Images/Technical%20Logo%20Images/6.PNG" alt="App Development" />
                                 </figure>
-                                <h3 class="title is-5 has-text-info">App Development</h3>
+                                <h3 class="title is-6 has-text-info">App Development</h3>
                             </div>
                         </div>
-                        <div class="column is-half-mobile is-one-quarter-tablet">
-                            <div class="box has-text-centered technology-card">
+                        <!-- Tech Logo 4 - Raw URL Check -->
+                        <div class="column is-half-mobile is-one-quarter-tablet is-one-fifth-desktop">
+                            <div class="box technology-card">
                                 <figure class="image is-64x64 is-inline-block is-m-b-3">
-                                    <!-- UPDATED URL -->
                                     <img src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/refs/heads/main/asserts/Images/Technical%20Logo%20Images/5.PNG" alt="Scratch Animation" />
                                 </figure>
-                                <h3 class="title is-5 has-text-info">Scratch Animation</h3>
+                                <h3 class="title is-6 has-text-info">Scratch Animation</h3>
                             </div>
                         </div>
-                        <div class="column is-half-mobile is-one-quarter-tablet">
-                            <div class="box has-text-centered technology-card">
+                        <!-- Tech Logo 5 - Raw URL Check -->
+                        <div class="column is-half-mobile is-one-quarter-tablet is-one-fifth-desktop">
+                            <div class="box technology-card">
                                 <figure class="image is-64x64 is-inline-block is-m-b-3">
-                                    <!-- UPDATED URL -->
                                     <img src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/refs/heads/main/asserts/Images/Technical%20Logo%20Images/4.PNG" alt="Internet of Things" />
                                 </figure>
-                                <h3 class="title is-5 has-text-info">Internet of Things</h3>
+                                <h3 class="title is-6 has-text-info">Internet of Things</h3>
                             </div>
                         </div>
-                        <div class="column is-half-mobile is-one-quarter-tablet">
-                            <div class="box has-text-centered technology-card">
+                        <!-- Tech Logo 6 - Raw URL Check -->
+                        <div class="column is-half-mobile is-one-quarter-tablet is-one-fifth-desktop">
+                            <div class="box technology-card">
                                 <figure class="image is-64x64 is-inline-block is-m-b-3">
-                                    <!-- UPDATED URL -->
                                     <img src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/refs/heads/main/asserts/Images/Technical%20Logo%20Images/3.PNG" alt="3D Printer" />
                                 </figure>
-                                <h3 class="title is-5 has-text-info">3D Printer</h3>
+                                <h3 class="title is-6 has-text-info">3D Printer</h3>
                             </div>
                         </div>
-                        <div class="column is-half-mobile is-one-quarter-tablet">
-                            <div class="box has-text-centered technology-card">
+                        <!-- Tech Logo 7 - Raw URL Check -->
+                        <div class="column is-half-mobile is-one-quarter-tablet is-one-fifth-desktop">
+                            <div class="box technology-card">
                                 <figure class="image is-64x64 is-inline-block is-m-b-3">
-                                    <!-- UPDATED URL -->
                                     <img src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/refs/heads/main/asserts/Images/Technical%20Logo%20Images/2.PNG" alt="Drones" />
                                 </figure>
-                                <h3 class="title is-5 has-text-info">Drones</h3>
+                                <h3 class="title is-6 has-text-info">Drones</h3>
                             </div>
                         </div>
-                        <div class="column is-half-mobile is-one-quarter-tablet">
-                            <div class="box has-text-centered technology-card">
+                        <!-- Tech Logo 8 - Raw URL Check -->
+                        <div class="column is-half-mobile is-one-quarter-tablet is-one-fifth-desktop">
+                            <div class="box technology-card">
                                 <figure class="image is-64x64 is-inline-block is-m-b-3">
-                                    <!-- UPDATED URL -->
                                     <img src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/refs/heads/main/asserts/Images/Technical%20Logo%20Images/1.PNG" alt="Aviation" />
                                 </figure>
-                                <h3 class="title is-5 has-text-info">Aviation</h3>
+                                <h3 class="title is-6 has-text-info">Aviation</h3>
                             </div>
                         </div>
 
@@ -405,69 +488,151 @@
         <div id="page-media" class="page-content is-hidden">
             <section id="media-section" class="section section-padding has-background-white">
                 <div class="container">
-                    <h2 class="title is-2 is-size-4-mobile is-size-2-tablet">The Roboverse in Focus: Evidence of Impact</h2>
-                    <p class="subtitle is-5 has-text-grey-dark is-m-b-6">
-                        Dive into our media gallery to witness the tangible results of future-focused learning and successful entrepreneurship.
+                    <h2 class="title is-2 is-size-4-mobile is-size-2-tablet has-text-centered">The Roboverse Media Showcase: Impact in Motion</h2>
+                    <p class="subtitle is-5 has-text-grey-dark has-text-centered is-m-b-6">
+                        Dive into our gallery of photos and **videos** to witness the tangible results of future-focused learning and successful entrepreneurship.
                     </p>
 
-                    <div class="columns is-vcentered">
+                    <div class="columns is-vcentered is-variable is-8">
                         <!-- Innovator Gallery Overview -->
-                        <div class="column is-half">
-                            <div class="box">
+                        <div class="column is-half-desktop is-full-mobile">
+                            <div class="box" style="border-radius: 8px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);">
                                 <h3 class="title is-4 has-text-info">Innovator Gallery Overview</h3>
                                 <p class="content is-size-5 has-text-grey-dark">
-                                    High-resolution photos and videos showcasing student-built robots, working AI models, and drone projects. The practical outcomes of critical thinking and creativity.
+                                    High-resolution photos and **autoplay video clips** showcasing student-built robots, working AI models, and drone projects. The practical outcomes of critical thinking and creativity.
+                                </p>
+                                <p class="content is-size-6 has-text-grey">
+                                    Scroll through the slides to see real student work in action. The videos are **muted** by default for autoplay compatibility, but you can unmute them directly on the video player.
                                 </p>
                             </div>
                         </div>
 
-                        <!-- Innovator Gallery Slider -->
-                        <div class="column is-half">
-                            <div id="slider-innovator" class="is-relative hero-slider-height-small" style="height: 384px; border-radius: 8px; overflow: hidden; box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);">
-                                <div class="slider-track" style="transition: transform 0.5s ease-in-out; height: 100%;">
-                                    <!-- UPDATED URLS -->
+                        <!-- Innovator Gallery Slider (Now combined Image/Video) -->
+                        <div class="column is-half-desktop is-full-mobile">
+                            <div id="slider-innovator" class="is-relative" style="height: 384px; border-radius: 8px; overflow: hidden; box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);">
+                                <div class="slider-track" id="innovator-slider-track" style="height: 100%;">
+                                    <!-- Slide 1: Image -->
                                     <div class="slider-slide">
-                                        <img src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/refs/heads/main/asserts/Images/Training%20Images/IMG_5706.JPG" alt="Innovator Gallery Photo 1" onerror="this.src='https://placehold.co/1200x800?text=Image+missing'" />
+                                        <img src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/refs/heads/main/asserts/Images/Training%20Images/IMG_5706.JPG" alt="Innovator Gallery Photo 1" onerror="this.src='https://placehold.co/1200x800?text=Image+1'" />
                                     </div>
+                                    <!-- Slide 2: Video 1 (New) -->
                                     <div class="slider-slide">
-                                        <img src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/refs/heads/main/asserts/Images/Training%20Images/IMG_5707.JPG" alt="Innovator Gallery Photo 2" onerror="this.src='https://placehold.co/1200x800?text=Image+missing'" />
+                                        <video src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/refs/heads/main/asserts/Images/Videos/1.MP4"
+                                            autoplay muted loop playsinline controls poster="https://placehold.co/1200x800/1e90ff/ffffff?text=Video+1+Loading"
+                                            preload="auto" aria-label="Student project video 1">
+                                        </video>
                                     </div>
+                                    <!-- Slide 3: Image -->
                                     <div class="slider-slide">
-                                        <img src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/refs/heads/main/asserts/Images/Training%20Images/IMG_5708.JPG" alt="Innovator Gallery Photo 3" onerror="this.src='https://placehold.co/1200x800?text=Image+missing'" />
+                                        <img src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/refs/heads/main/asserts/Images/Training%20Images/IMG_5707.JPG" alt="Innovator Gallery Photo 2" onerror="this.src='https://placehold.co/1200x800?text=Image+2'" />
                                     </div>
+                                    <!-- Slide 4: Video 2 (New - Assumed pattern) -->
                                     <div class="slider-slide">
-                                        <img src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/refs/heads/main/asserts/Images/Training%20Images/IMG_5709.JPG" alt="Innovator Gallery Photo 4" onerror="this.src='https://placehold.co/1200x800?text=Image+missing'" />
+                                        <video src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/refs/heads/main/asserts/Images/Videos/2.MP4"
+                                            autoplay muted loop playsinline controls poster="https://placehold.co/1200x800/1e90ff/ffffff?text=Video+2+Loading"
+                                            preload="auto" aria-label="Student project video 2">
+                                        </video>
                                     </div>
+                                    <!-- Slide 5: Image -->
                                     <div class="slider-slide">
-                                        <img src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/refs/heads/main/asserts/Images/Training%20Images/IMG_5710.JPG" alt="Innovator Gallery Photo 5" onerror="this.src='https://placehold.co/1200x800?text=Image+missing'" />
+                                        <img src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/refs/heads/main/asserts/Images/Training%20Images/IMG_5708.JPG" alt="Innovator Gallery Photo 3" onerror="this.src='https://placehold.co/1200x800?text=Image+3'" />
                                     </div>
+                                    <!-- Slide 6: Video 3 (New - Assumed pattern) -->
                                     <div class="slider-slide">
-                                        <img src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/refs/heads/main/asserts/Images/Training%20Images/IMG_5711.JPG" alt="Innovator Gallery Photo 5" onerror="this.src='https://placehold.co/1200x800?text=Image+missing'" />
+                                        <video src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/refs/heads/main/asserts/Images/Videos/3.MP4"
+                                            autoplay muted loop playsinline controls poster="https://placehold.co/1200x800/1e90ff/ffffff?text=Video+3+Loading"
+                                            preload="auto" aria-label="Student project video 3">
+                                        </video>
                                     </div>
+                                    <!-- Slide 7: Image -->
                                     <div class="slider-slide">
-                                        <img src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/refs/heads/main/asserts/Images/Training%20Images/IMG_5713.JPG" alt="Innovator Gallery Photo 5" onerror="this.src='https://placehold.co/1200x800?text=Image+missing'" />
+                                        <img src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/refs/heads/main/asserts/Images/Training%20Images/IMG_5709.JPG" alt="Innovator Gallery Photo 4" onerror="this.src='https://placehold.co/1200x800?text=Image+4'" />
                                     </div>
+                                    <!-- Slide 8: Video 4 (New - Assumed pattern) -->
                                     <div class="slider-slide">
-                                        <img src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/refs/heads/main/asserts/Images/Training%20Images/IMG_5714.JPG" alt="Innovator Gallery Photo 5" onerror="this.src='https://placehold.co/1200x800?text=Image+missing'" />
+                                        <video src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/refs/heads/main/asserts/Images/Videos/4.MP4"
+                                            autoplay muted loop playsinline controls poster="https://placehold.co/1200x800/1e90ff/ffffff?text=Video+4+Loading"
+                                            preload="auto" aria-label="Student project video 4">
+                                        </video>
                                     </div>
+                                    <!-- Slide 9: Image -->
                                     <div class="slider-slide">
-                                        <img src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/refs/heads/main/asserts/Images/Training%20Images/IMG_5744.JPG" alt="Innovator Gallery Photo 5" onerror="this.src='https://placehold.co/1200x800?text=Image+missing'" />
+                                        <img src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/refs/heads/main/asserts/Images/Training%20Images/IMG_5710.JPG" alt="Innovator Gallery Photo 5" onerror="this.src='https://placehold.co/1200x800?text=Image+5'" />
                                     </div>
+                                    <!-- Slide 10: Video 5 (New - Assumed pattern) -->
                                     <div class="slider-slide">
-                                        <img src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/refs/heads/main/asserts/Images/Training%20Images/IMG_5746.JPG" alt="Innovator Gallery Photo 5" onerror="this.src='https://placehold.co/1200x800?text=Image+missing'" />
+                                        <video src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/refs/heads/main/asserts/Images/Videos/5.MP4"
+                                            autoplay muted loop playsinline controls poster="https://placehold.co/1200x800/1e90ff/ffffff?text=Video+5+Loading"
+                                            preload="auto" aria-label="Student project video 5">
+                                        </video>
+                                    </div>
+                                    <!-- Slide 11: Image -->
+                                    <div class="slider-slide">
+                                        <img src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/refs/heads/main/asserts/Images/Training%20Images/IMG_5711.JPG" alt="Innovator Gallery Photo 6" onerror="this.src='https://placehold.co/1200x800?text=Image+6'" />
+                                    </div>
+                                    <!-- Slide 12: Video 6 (New - Assumed pattern) -->
+                                    <div class="slider-slide">
+                                        <video src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/refs/heads/main/asserts/Images/Videos/6.MP4"
+                                            autoplay muted loop playsinline controls poster="https://placehold.co/1200x800/1e90ff/ffffff?text=Video+6+Loading"
+                                            preload="auto" aria-label="Student project video 6">
+                                        </video>
+                                    </div>
+                                    <!-- Slide 13: Image -->
+                                    <div class="slider-slide">
+                                        <img src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/refs/heads/main/asserts/Images/Training%20Images/IMG_5713.JPG" alt="Innovator Gallery Photo 7" onerror="this.src='https://placehold.co/1200x800?text=Image+7'" />
+                                    </div>
+                                    <!-- Slide 14: Video 7 (New - Assumed pattern) -->
+                                    <div class="slider-slide">
+                                        <video src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/refs/heads/main/asserts/Images/Videos/7.MP4"
+                                            autoplay muted loop playsinline controls poster="https://placehold.co/1200x800/1e90ff/ffffff?text=Video+7+Loading"
+                                            preload="auto" aria-label="Student project video 7">
+                                        </video>
+                                    </div>
+                                    <!-- Slide 15: Image -->
+                                    <div class="slider-slide">
+                                        <img src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/refs/heads/main/asserts/Images/Training%20Images/IMG_5714.JPG" alt="Innovator Gallery Photo 8" onerror="this.src='https://placehold.co/1200x800?text=Image+8'" />
+                                    </div>
+                                    <!-- Slide 16: Video 8 (New - Assumed pattern) -->
+                                    <div class="slider-slide">
+                                        <video src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/refs/heads/main/asserts/Images/Videos/8.MP4"
+                                            autoplay muted loop playsinline controls poster="https://placehold.co/1200x800/1e90ff/ffffff?text=Video+8+Loading"
+                                            preload="auto" aria-label="Student project video 8">
+                                        </video>
+                                    </div>
+                                    <!-- Slide 17: Image -->
+                                    <div class="slider-slide">
+                                        <img src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/refs/heads/main/asserts/Images/Training%20Images/IMG_5744.JPG" alt="Innovator Gallery Photo 9" onerror="this.src='https://placehold.co/1200x800?text=Image+9'" />
+                                    </div>
+                                    <!-- Slide 18: Video 9 (New - Assumed pattern) -->
+                                    <div class="slider-slide">
+                                        <video src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/refs/heads/main/asserts/Images/Videos/9.MP4"
+                                            autoplay muted loop playsinline controls poster="https://placehold.co/1200x800/1e90ff/ffffff?text=Video+9+Loading"
+                                            preload="auto" aria-label="Student project video 9">
+                                        </video>
+                                    </div>
+                                    <!-- Slide 19: Image -->
+                                    <div class="slider-slide">
+                                        <img src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/refs/heads/main/asserts/Images/Training%20Images/IMG_5746.JPG" alt="Innovator Gallery Photo 10" onerror="this.src='https://placehold.co/1200x800?text=Image+10'" />
+                                    </div>
+                                    <!-- Slide 20: Video 10 (New - Assumed pattern) -->
+                                    <div class="slider-slide">
+                                        <video src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/refs/heads/main/asserts/Images/Videos/10.MP4"
+                                            autoplay muted loop playsinline controls poster="https://placehold.co/1200x800/1e90ff/ffffff?text=Video+10+Loading"
+                                            preload="auto" aria-label="Student project video 10">
+                                        </video>
                                     </div>
                                 </div>
 
                                 <!-- Slider Controls -->
-                                <button class="slider-button slider-button-prev" aria-label="Previous gallery slide">
+                                <button class="slider-button slider-button-prev" aria-label="Previous gallery slide" id="innovator-prev">
                                     <span class="icon"><i class="fas fa-chevron-left"></i></span>
                                 </button>
-                                <button class="slider-button slider-button-next" aria-label="Next gallery slide">
+                                <button class="slider-button slider-button-next" aria-label="Next gallery slide" id="innovator-next">
                                     <span class="icon"><i class="fas fa-chevron-right"></i></span>
                                 </button>
 
                                 <!-- Slider Dots -->
-                                <div class="slider-dots" aria-hidden="true"></div>
+                                <div class="slider-dots" id="innovator-dots" aria-hidden="true"></div>
                             </div>
                         </div>
                     </div>
@@ -480,7 +645,7 @@
             <section id="about-section" class="section section-padding has-background-light">
                 <div class="container">
                     <div class="columns is-vcentered is-variable is-8">
-                        <div class="column is-half">
+                        <div class="column is-half-desktop is-full-mobile">
                             <h2 class="title is-2 is-size-4-mobile is-size-2-tablet">
                                 DivithRoboverse:
                                 <br />
@@ -498,20 +663,20 @@
                         </div>
 
                         <!-- Impact Stats -->
-                        <div class="column is-half">
-                            <div class="box is-shadowless" style="background-color: white; border-radius: 12px; box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);">
+                        <div class="column is-half-desktop is-full-mobile">
+                            <div class="box has-background-white" style="border-radius: 12px; box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);">
                                 <h3 class="title is-4 has-text-centered has-text-info">The Roboverse Impact</h3>
                                 <div class="is-m-t-5">
                                     <div class="has-text-centered is-m-b-4">
                                         <p class="title is-3 has-text-grey-darker">300,000+</p>
                                         <p class="subtitle is-6 has-text-grey-dark">Students equipped with practical, real-world tech skills.</p>
                                     </div>
-                                    <hr class="is-divider">
+                                    <hr class="has-background-grey-lighter">
                                     <div class="has-text-centered is-m-b-4 is-m-t-4">
                                         <p class="title is-3 has-text-grey-darker">200+</p>
                                         <p class="subtitle is-6 has-text-grey-dark">Schools successfully integrated our advanced curriculum.</p>
                                     </div>
-                                    <hr class="is-divider">
+                                    <hr class="has-background-grey-lighter">
                                     <div class="has-text-centered is-m-t-4">
                                         <h4 class="title is-5 has-text-grey-darker">Proprietary Advantage</h4>
                                         <p class="subtitle is-6 has-text-grey-dark">We own our complete product line, software, and curriculum, a resource built on 10+ years of investment and refinement.</p>
@@ -523,53 +688,26 @@
                 </div>
             </section>
 
-            <!-- Vision & Mission -->
-            <section id="vision-mission" class="section section-padding has-background-white">
-                <div class="container">
-                    <h2 class="title is-2 is-size-4-mobile is-size-2-tablet has-text-centered">Our Vision & Mission</h2>
-                    <div class="columns is-m-t-6 is-variable is-8">
-                        <div class="column is-half">
-                            <div class="box">
-                                <h3 class="title is-4 has-text-info is-m-b-3">Our Vision</h3>
-                                <p class="content is-size-5 has-text-grey-dark">
-                                    To be the global leader in STEAM education, creating a future where every student has the skills and mindset to innovate, solve complex problems, and lead in a technology-driven world.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="column is-half">
-                            <div class="box">
-                                <h3 class="title is-4 has-text-info is-m-b-3">Our Mission</h3>
-                                <p class="content is-size-5 has-text-grey-dark">
-                                    To provide accessible, hands-on learning experiences in robotics, AI, and coding, empowering students from all backgrounds to become creators and innovators.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
             <!-- Our Clients -->
             <section id="clients" class="section section-padding has-background-white">
                 <div class="container">
-                    <h2 class="title is-2 is-size-4-mobile is-size-2-tablet has-text-centered">Our Clients</h2>
+                    <h2 class="title is-2 is-size-4-mobile is-size-2-tablet has-text-centered">Our Trusted Partners</h2>
                     <p class="subtitle is-5 has-text-grey-dark has-text-centered is-m-b-6">We are proud to partner with leading educational institutions and organizations.</p>
-                    <div class="columns is-multiline is-mobile is-m-t-6 is-centered">
-                        <!-- UPDATED URLS -->
-                        <div class="column is-one-quarter-desktop is-half-tablet is-half-mobile has-text-centered"><img src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/refs/heads/main/asserts/Images/Client_logo/1.jpg" alt="Client Logo 1" class="is-image-client" onerror="this.src='https://placehold.co/200x100?text=Logo+missing'" style="max-width: 150px; height: auto;" /></div>
-                        <div class="column is-one-quarter-desktop is-half-tablet is-half-mobile has-text-centered"><img src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/refs/heads/main/asserts/Images/Client_logo/2.jpg" alt="Client Logo 2" class="is-image-client" onerror="this.src='https://placehold.co/200x100?text=Logo+missing'" style="max-width: 150px; height: auto;" /></div>
-						<div class="column is-one-quarter-desktop is-half-tablet is-half-mobile has-text-centered"><img src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/refs/heads/main/asserts/Images/Client_logo/3.jpg" alt="Client Logo 3" class="is-image-client" onerror="this.src='https://placehold.co/200x100?text=Logo+missing'" style="max-width: 150px; height: auto;" /></div>
-						<div class="column is-one-quarter-desktop is-half-tablet is-half-mobile has-text-centered"><img src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/refs/heads/main/asserts/Images/Client_logo/4.jpg" alt="Client Logo 4" class="is-image-client" onerror="this.src='https://placehold.co/200x100?text=Logo+missing'" style="max-width: 150px; height: auto;" /></div>
-						<div class="column is-one-quarter-desktop is-half-tablet is-half-mobile has-text-centered"><img src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/refs/heads/main/asserts/Images/Client_logo/5.jpg" alt="Client Logo 5" class="is-image-client" onerror="this.src='https://placehold.co/200x100?text=Logo+missing'" style="max-width: 150px; height: auto;" /></div>
-						<div class="column is-one-quarter-desktop is-half-tablet is-half-mobile has-text-centered"><img src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/refs/heads/main/asserts/Images/Client_logo/6.jpg" alt="Client Logo 6" class="is-image-client" onerror="this.src='https://placehold.co/200x100?text=Logo+missing'" style="max-width: 150px; height: auto;" /></div>
-						<div class="column is-one-quarter-desktop is-half-tablet is-half-mobile has-text-centered"><img src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/refs/heads/main/asserts/Images/Client_logo/7.jpg" alt="Client Logo 7" class="is-image-client" onerror="this.src='https://placehold.co/200x100?text=Logo+missing'" style="max-width: 150px; height: auto;" /></div>
-						<div class="column is-one-quarter-desktop is-half-tablet is-half-mobile has-text-centered"><img src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/refs/heads/main/asserts/Images/Client_logo/8.jpg" alt="Client Logo 8" class="is-image-client" onerror="this.src='https://placehold.co/200x100?text=Logo+missing'" style="max-width: 150px; height: auto;" /></div>
-						<div class="column is-one-quarter-desktop is-half-tablet is-half-mobile has-text-centered"><img src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/refs/heads/main/asserts/Images/Client_logo/9.jpg" alt="Client Logo 9" class="is-image-client" onerror="this.src='https://placehold.co/200x100?text=Logo+missing'" style="max-width: 150px; height: auto;" /></div>
-						<div class="column is-one-quarter-desktop is-half-tablet is-half-mobile has-text-centered"><img src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/refs/heads/main/asserts/Images/Client_logo/10.png" alt="Client Logo 10" class="is-image-client" onerror="this.src='https://placehold.co/200x100?text=Logo+missing'" style="max-width: 150px; height: auto;" /></div>
-						<div class="column is-one-quarter-desktop is-half-tablet is-half-mobile has-text-centered"><img src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/refs/heads/main/asserts/Images/Client_logo/11.png" alt="Client Logo 11" class="is-image-client" onerror="this.src='https://placehold.co/200x100?text=Logo+missing'" style="max-width: 150px; height: auto;" /></div>
-						<div class="column is-one-quarter-desktop is-half-tablet is-half-mobile has-text-centered"><img src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/refs/heads/main/asserts/Images/Client_logo/12.jpg" alt="Client Logo 11" class="is-image-client" onerror="this.src='https://placehold.co/200x100?text=Logo+missing'" style="max-width: 150px; height: auto;" /></div>
-                        <div class="column is-one-quarter-desktop is-half-tablet is-half-mobile has-text-centered"><img src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/refs/heads/main/asserts/Images/Client_logo/13.png" alt="Client Logo 11" class="is-image-client" onerror="this.src='https://placehold.co/200x100?text=Logo+missing'" style="max-width: 150px; height: auto;" /></div>
-						<div class="column is-one-quarter-desktop is-half-tablet is-half-mobile has-text-centered"><img src="https://placehold.co/200x100/cccccc/999999?text=Client+Logo+3" alt="Client Logo 12" class="is-image-client" onerror="this.src='https://placehold.co/200x100?text=Logo+missing'" style="max-width: 150px; height: auto;" /></div>
-                        <div class="column is-one-quarter-desktop is-half-tablet is-half-mobile has-text-centered"><img src="https://placehold.co/200x100/cccccc/999999?text=Client+Logo+4" alt="Client Logo 13" class="is-image-client" onerror="this.src='https://placehold.co/200x100?text=Logo+missing'" style="max-width: 150px; height: auto;" /></div>
+                    <div class="columns is-multiline is-mobile is-m-t-6 is-centered is-variable is-8">
+                        <!-- Raw URL Checks (using Bulma columns to ensure responsiveness) -->
+                        <div class="column is-half-mobile is-one-quarter-tablet is-one-fifth-desktop has-text-centered"><img src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/refs/heads/main/asserts/Images/Client_logo/1.jpg" alt="Client Logo 1" style="max-width: 150px; height: auto; filter: grayscale(100%); opacity: 0.7; transition: all 0.3s;" onmouseover="this.style.filter='grayscale(0%)'; this.style.opacity='1';" onmouseout="this.style.filter='grayscale(100%)'; this.style.opacity='0.7';" onerror="this.src='https://placehold.co/200x100?text=Logo+1'" /></div>
+                        <div class="column is-half-mobile is-one-quarter-tablet is-one-fifth-desktop has-text-centered"><img src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/refs/heads/main/asserts/Images/Client_logo/2.jpg" alt="Client Logo 2" style="max-width: 150px; height: auto; filter: grayscale(100%); opacity: 0.7; transition: all 0.3s;" onmouseover="this.style.filter='grayscale(0%)'; this.style.opacity='1';" onmouseout="this.style.filter='grayscale(100%)'; this.style.opacity='0.7';" onerror="this.src='https://placehold.co/200x100?text=Logo+2'" /></div>
+						<div class="column is-half-mobile is-one-quarter-tablet is-one-fifth-desktop has-text-centered"><img src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/refs/heads/main/asserts/Images/Client_logo/3.jpg" alt="Client Logo 3" style="max-width: 150px; height: auto; filter: grayscale(100%); opacity: 0.7; transition: all 0.3s;" onmouseover="this.style.filter='grayscale(0%)'; this.style.opacity='1';" onmouseout="this.style.filter='grayscale(100%)'; this.style.opacity='0.7';" onerror="this.src='https://placehold.co/200x100?text=Logo+3'" /></div>
+						<div class="column is-half-mobile is-one-quarter-tablet is-one-fifth-desktop has-text-centered"><img src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/refs/heads/main/asserts/Images/Client_logo/4.jpg" alt="Client Logo 4" style="max-width: 150px; height: auto; filter: grayscale(100%); opacity: 0.7; transition: all 0.3s;" onmouseover="this.style.filter='grayscale(0%)'; this.style.opacity='1';" onmouseout="this.style.filter='grayscale(100%)'; this.style.opacity='0.7';" onerror="this.src='https://placehold.co/200x100?text=Logo+4'" /></div>
+						<div class="column is-half-mobile is-one-quarter-tablet is-one-fifth-desktop has-text-centered"><img src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/refs/heads/main/asserts/Images/Client_logo/5.jpg" alt="Client Logo 5" style="max-width: 150px; height: auto; filter: grayscale(100%); opacity: 0.7; transition: all 0.3s;" onmouseover="this.style.filter='grayscale(0%)'; this.style.opacity='1';" onmouseout="this.style.filter='grayscale(100%)'; this.style.opacity='0.7';" onerror="this.src='https://placehold.co/200x100?text=Logo+5'" /></div>
+						<div class="column is-half-mobile is-one-quarter-tablet is-one-fifth-desktop has-text-centered"><img src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/refs/heads/main/asserts/Images/Client_logo/6.jpg" alt="Client Logo 6" style="max-width: 150px; height: auto; filter: grayscale(100%); opacity: 0.7; transition: all 0.3s;" onmouseover="this.style.filter='grayscale(0%)'; this.style.opacity='1';" onmouseout="this.style.filter='grayscale(100%)'; this.style.opacity='0.7';" onerror="this.src='https://placehold.co/200x100?text=Logo+6'" /></div>
+						<div class="column is-half-mobile is-one-quarter-tablet is-one-fifth-desktop has-text-centered"><img src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/refs/heads/main/asserts/Images/Client_logo/7.jpg" alt="Client Logo 7" style="max-width: 150px; height: auto; filter: grayscale(100%); opacity: 0.7; transition: all 0.3s;" onmouseover="this.style.filter='grayscale(0%)'; this.style.opacity='1';" onmouseout="this.style.filter='grayscale(100%)'; this.style.opacity='0.7';" onerror="this.src='https://placehold.co/200x100?text=Logo+7'" /></div>
+						<div class="column is-half-mobile is-one-quarter-tablet is-one-fifth-desktop has-text-centered"><img src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/refs/heads/main/asserts/Images/Client_logo/8.jpg" alt="Client Logo 8" style="max-width: 150px; height: auto; filter: grayscale(100%); opacity: 0.7; transition: all 0.3s;" onmouseover="this.style.filter='grayscale(0%)'; this.style.opacity='1';" onmouseout="this.style.filter='grayscale(100%)'; this.style.opacity='0.7';" onerror="this.src='https://placehold.co/200x100?text=Logo+8'" /></div>
+						<div class="column is-half-mobile is-one-quarter-tablet is-one-fifth-desktop has-text-centered"><img src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/refs/heads/main/asserts/Images/Client_logo/9.jpg" alt="Client Logo 9" style="max-width: 150px; height: auto; filter: grayscale(100%); opacity: 0.7; transition: all 0.3s;" onmouseover="this.style.filter='grayscale(0%)'; this.style.opacity='1';" onmouseout="this.style.filter='grayscale(100%)'; this.style.opacity='0.7';" onerror="this.src='https://placehold.co/200x100?text=Logo+9'" /></div>
+						<div class="column is-half-mobile is-one-quarter-tablet is-one-fifth-desktop has-text-centered"><img src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/refs/heads/main/asserts/Images/Client_logo/10.png" alt="Client Logo 10" style="max-width: 150px; height: auto; filter: grayscale(100%); opacity: 0.7; transition: all 0.3s;" onmouseover="this.style.filter='grayscale(0%)'; this.style.opacity='1';" onmouseout="this.style.filter='grayscale(100%)'; this.style.opacity='0.7';" onerror="this.src='https://placehold.co/200x100?text=Logo+10'" /></div>
+						<div class="column is-half-mobile is-one-quarter-tablet is-one-fifth-desktop has-text-centered"><img src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/refs/heads/main/asserts/Images/Client_logo/11.png" alt="Client Logo 11" style="max-width: 150px; height: auto; filter: grayscale(100%); opacity: 0.7; transition: all 0.3s;" onmouseover="this.style.filter='grayscale(0%)'; this.style.opacity='1';" onmouseout="this.style.filter='grayscale(100%)'; this.style.opacity='0.7';" onerror="this.src='https://placehold.co/200x100?text=Logo+11'" /></div>
+                        <div class="column is-half-mobile is-one-quarter-tablet is-one-fifth-desktop has-text-centered"><img src="https://placehold.co/200x100/cccccc/999999?text=Client+Logo+12" alt="Client Logo 12" style="max-width: 150px; height: auto; filter: grayscale(100%); opacity: 0.7; transition: all 0.3s;" onmouseover="this.style.filter='grayscale(0%)'; this.style.opacity='1';" onmouseout="this.style.filter='grayscale(100%)'; this.style.opacity='0.7';" onerror="this.src='https://placehold.co/200x100?text=Logo+12'" /></div>
+                        <div class="column is-half-mobile is-one-quarter-tablet is-one-fifth-desktop has-text-centered"><img src="https://placehold.co/200x100/cccccc/999999?text=Client+Logo+13" alt="Client Logo 13" style="max-width: 150px; height: auto; filter: grayscale(100%); opacity: 0.7; transition: all 0.3s;" onmouseover="this.style.filter='grayscale(0%)'; this.style.opacity='1';" onmouseout="this.style.filter='grayscale(100%)'; this.style.opacity='0.7';" onerror="this.src='https://placehold.co/200x100?text=Logo+13'" /></div>
                     </div>
                 </div>
             </section>
@@ -580,16 +718,16 @@
             <section id="enquiry-section" class="section section-padding has-background-white">
                 <div class="container">
                     <h2 class="title is-2 is-size-4-mobile is-size-2-tablet has-text-centered">Launch Your Journey with the Roboverse</h2>
-                    <p class="subtitle is-5 has-text-grey-dark has-text-centered is-m-b-6">
+                    <p class="subtitle is-5 has-text-grey-dark has-text-centered is-m-b-6" style="max-width: 800px; margin: 0.5rem auto 3rem auto;">
                         Whether you're looking to educate, partner, or invest, let us know how we can power your future. Please select your primary area of interest, and a specialist will contact you.
                     </p>
 
                     <div class="columns is-centered">
                         <div class="column is-two-thirds-desktop is-full-mobile">
-                            <div class="box has-background-light is-shadowless" style="border-radius: 12px; padding: 2.5rem;">
+                            <div class="box has-background-light" style="border-radius: 12px; padding: 2.5rem; box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);">
                                 <form id="enquiry-form" action="#" method="POST" onsubmit="event.preventDefault(); showEnquirySuccess();">
                                     <div class="field">
-                                        <label class="label has-text-grey-dark">I am ready to... (Select all that apply):</label>
+                                        <label class="label has-text-grey-dark has-text-weight-bold">I am ready to... (Select all that apply):</label>
                                         <div class="control">
                                             <label class="checkbox is-block is-m-b-3">
                                                 <input id="interest-school" name="interest-school" type="checkbox">
@@ -614,49 +752,50 @@
                                     <div class="field">
                                         <label class="label" for="name">Full Name</label>
                                         <div class="control">
-                                            <input class="input" type="text" name="name" id="name" autocomplete="name" required>
+                                            <input class="input is-medium is-rounded" type="text" name="name" id="name" autocomplete="name" required>
                                         </div>
                                     </div>
 
                                     <div class="field">
                                         <label class="label" for="organization">Organization / City</label>
                                         <div class="control">
-                                            <input class="input" type="text" name="organization" id="organization">
+                                            <input class="input is-medium is-rounded" type="text" name="organization" id="organization">
                                         </div>
                                     </div>
 
                                     <div class="field">
                                         <label class="label" for="phone">Phone</label>
                                         <div class="control">
-                                            <input class="input" type="tel" name="phone" id="phone" autocomplete="tel">
+                                            <input class="input is-medium is-rounded" type="tel" name="phone" id="phone" autocomplete="tel">
                                         </div>
                                     </div>
 
                                     <div class="field">
                                         <label class="label" for="email">Email</label>
                                         <div class="control">
-                                            <input class="input" type="email" name="email" id="email" autocomplete="email" required>
+                                            <input class="input is-medium is-rounded" type="email" name="email" id="email" autocomplete="email" required>
                                         </div>
                                     </div>
 
                                     <div class="field">
                                         <label class="label" for="message">Message</label>
                                         <div class="control">
-                                            <textarea class="textarea" id="message" name="message" rows="4"></textarea>
+                                            <textarea class="textarea is-medium is-rounded" id="message" name="message" rows="4"></textarea>
                                         </div>
                                     </div>
 
                                     <!-- Submit Button -->
                                     <div class="field is-m-t-5">
                                         <div class="control">
-                                            <button type="submit" class="button is-info is-fullwidth is-medium">
-                                                Send Inquiry
+                                            <button type="submit" class="button is-info is-fullwidth is-medium is-rounded">
+                                                <span class="icon"><i class="fas fa-paper-plane"></i></span>
+                                                <span>Send Inquiry</span>
                                             </button>
                                         </div>
                                     </div>
                                 </form>
                                 <!-- Success Message -->
-                                <div id="enquiry-success" class="notification is-success is-hidden has-text-centered is-m-t-4" role="status" aria-live="polite">
+                                <div id="enquiry-success" class="notification is-success is-hidden has-text-centered is-m-t-4" role="status" aria-live="polite" style="border-radius: 8px;">
                                     <strong>Thank you!</strong> Your inquiry has been prepared to send via your email client. A specialist will contact you within one business day.
                                 </div>
                             </div>
@@ -677,21 +816,21 @@
             <div class="columns is-centered is-m-t-6 is-variable is-8">
                 <!-- Call -->
                 <div class="column is-one-third-desktop is-full-mobile">
-                    <div class="box has-background-grey-dark has-text-centered">
+                    <div class="box has-background-grey-dark has-text-centered is-clickable">
                         <h3 class="title is-5 has-text-white">Call Our Specialists</h3>
-                        <p class="subtitle is-4 has-text-info-light">8904552934</p>
-                        <p class="is-size-7 has-text-grey-light">Immediate support for schools and course inquiries.</p>
+                        <a href="tel:8904552934" class="subtitle is-4 has-text-info-light" style="text-decoration: none;">8904552934</a>
+                        <p class="is-size-7 has-text-grey-light is-m-t-2">Immediate support for schools and course inquiries.</p>
                     </div>
                 </div>
 
                 <!-- WhatsApp -->
                 <div class="column is-one-third-desktop is-full-mobile">
-                    <div class="box has-background-grey-dark has-text-centered">
+                    <div class="box has-background-grey-dark has-text-centered is-clickable">
                         <h3 class="title is-5 has-text-white">General Inquiries (WhatsApp)</h3>
-                        <a href="http://wa.me/918904552934" target="_blank" rel="noopener noreferrer" class="subtitle is-4 has-text-info-light is-clickable" style="text-decoration: underline;">
+                        <a href="http://wa.me/918904552934" target="_blank" rel="noopener noreferrer" class="subtitle is-4 has-text-info-light" style="text-decoration: none;">
                             Click to Chat
                         </a>
-                        <p class="is-size-7 has-text-grey-light is-m-t-1">All other questions about courses, products, or events.</p>
+                        <p class="is-size-7 has-text-grey-light is-m-t-2">All other questions about courses, products, or events.</p>
                     </div>
                 </div>
             </div>
@@ -708,88 +847,139 @@
 
             <!-- Social Icons -->
             <div class="is-flex is-justify-content-center is-m-t-6" style="gap: 1.5rem;">
-                <a href="https://www.linkedin.com/company/divithroboverse-technologies/" target="_blank" rel="noopener noreferrer" class="has-text-grey-light is-size-4" aria-label="LinkedIn">
+                <a href="https://www.linkedin.com/company/divithroboverse-technologies/" target="_blank" rel="noopener noreferrer" class="has-text-grey-light is-size-4 hover:has-text-info" aria-label="LinkedIn">
                     <span class="icon"><i class="fab fa-linkedin"></i></span>
                 </a>
-                <a href="https://www.facebook.com/share/17WWsq9wn5/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="has-text-grey-light is-size-4" aria-label="Facebook">
+                <a href="https://www.facebook.com/share/17WWsq9wn5/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="has-text-grey-light is-size-4 hover:has-text-info" aria-label="Facebook">
                     <span class="icon"><i class="fab fa-facebook-f"></i></span>
                 </a>
-                <a href="http://www.youtube.com/@DIVITHROBOVERSETECHNOLOGIES" target="_blank" rel="noopener noreferrer" class="has-text-grey-light is-size-4" aria-label="YouTube">
+                <a href="http://www.youtube.com/@DIVITHROBOVERSETECHNOLOGIES" target="_blank" rel="noopener noreferrer" class="has-text-grey-light is-size-4 hover:has-text-info" aria-label="YouTube">
                     <span class="icon"><i class="fab fa-youtube"></i></span>
                 </a>
-                <a href="https://www.instagram.com/invites/contact/?igsh=1brtnm6wc4q2&utm_content=zew5o5e" target="_blank" rel="noopener noreferrer" class="has-text-grey-light is-size-4" aria-label="Instagram">
+                <a href="https://www.instagram.com/invites/contact/?igsh=1brtnm6wc4q2&utm_content=zew5o5e" target="_blank" rel="noopener noreferrer" class="has-text-grey-light is-size-4 hover:has-text-info" aria-label="Instagram">
                     <span class="icon"><i class="fab fa-instagram"></i></span>
                 </a>
             </div>
 
             <!-- Copyright -->
-            <div class="has-text-centered has-text-grey is-size-7 is-m-t-6" style="border-top: 1px solid #363636; padding-top: 2rem;">
+            <div class="has-text-centered has-text-grey is-size-7 is-m-t-6" style="border-top: 1px solid #4a4a4a; padding-top: 2rem;">
                 &copy; <script>document.write(new Date().getFullYear())</script> Divith Roboverse Technologies Pvt Ltd. All rights reserved.
             </div>
         </div>
     </footer>
 
-    <!-- Font Awesome (for icons) -->
-    <script src="https://use.fontawesome.com/releases/v6.5.1/js/all.js"></script>
-
-    <!-- Load JavaScript Files (deferred) - Assuming these files contain the slider and navigation logic -->
-    <script src="asserts/js/hero-slider.js" defer></script>
-    <script src="asserts/js/gallery-slider.js" defer></script>
-    <script src="asserts/js/page-navigation.js" defer></script>
-
     <script>
-        // Enquiry Form Success Handler
-        function showEnquirySuccess() {
-            const successMessage = document.getElementById('enquiry-success');
-            const form = document.querySelector('#enquiry-form');
+        // --- Core JavaScript Logic (Sliders and Navigation) ---
 
-            if (successMessage && form) {
-                const formData = new FormData(form);
+        /**
+         * Generic Slider Logic for any element with a .slider-track and .slider-slide
+         * @param {string} containerId - The ID of the parent container (e.g., 'hero-slider', 'slider-innovator')
+         * @param {number} interval - Autoplay interval in milliseconds (0 to disable)
+         */
+        function initializeSlider(containerId, interval = 5000) {
+            const container = document.getElementById(containerId);
+            if (!container) return;
 
-                // Get selected interests
-                const interests = [];
-                if (document.getElementById('interest-school').checked) interests.push('Transform my school with a full STEAM program');
-                if (document.getElementById('interest-hub').checked) interests.push('Enroll my child in specialized courses at a Learning Hub');
-                if (document.getElementById('interest-kit').checked) interests.push('Purchase an innovative "My Robo Box" for home learning');
-                if (document.getElementById('interest-general').checked) interests.push('General Inquiry about our technologies');
+            const track = container.querySelector('.slider-track');
+            const slides = container.querySelectorAll('.slider-slide');
+            const prevButton = document.getElementById(containerId.replace('slider', 'prev'));
+            const nextButton = document.getElementById(containerId.replace('slider', 'next'));
+            const dotsContainer = document.getElementById(containerId.replace('slider', 'dots'));
 
-                // Create email content
-                const subject = 'New Enquiry from ' + (formData.get('name') || 'Unknown');
-                const body = [
-                    'You have received a new enquiry with the following details:',
-                    '',
-                    'Date: ' + new Date().toLocaleString(),
-                    'Full Name: ' + (formData.get('name') || ''),
-                    'Organization/City: ' + (formData.get('organization') || ''),
-                    'Phone: ' + (formData.get('phone') || ''),
-                    'Email: ' + (formData.get('email') || ''),
-                    'Interests: ' + (interests.length ? interests.join('; ') : 'None'),
-                    '',
-                    'Message:',
-                    formData.get('message') || ''
-                ].join('\n');
+            if (!track || slides.length === 0) return;
 
-                // Create mailto link
-                const mailtoLink = 'mailto:divithroboversetechnologies@gmail.com?subject=' +
-                                  encodeURIComponent(subject) + '&body=' +
-                                  encodeURIComponent(body);
+            let currentIndex = 0;
+            let slideCount = slides.length;
+            let autoPlayTimer;
 
-                // Open email client
-                window.location.href = mailtoLink;
-
-                // Reset the form and show success message
-                form.reset();
-                successMessage.classList.remove('is-hidden');
-
-                // Hide the message after 5 seconds
-                setTimeout(() => {
-                    successMessage.classList.add('is-hidden');
-                }, 5000);
+            // 1. Create Dots
+            if (dotsContainer) {
+                dotsContainer.innerHTML = ''; // Clear previous dots
+                for (let i = 0; i < slideCount; i++) {
+                    const dot = document.createElement('div');
+                    dot.classList.add('dot');
+                    dot.setAttribute('data-index', i);
+                    dot.addEventListener('click', () => moveToSlide(i));
+                    dotsContainer.appendChild(dot);
+                }
             }
+            const dots = dotsContainer ? dotsContainer.querySelectorAll('.dot') : [];
+
+            /** Updates the track position, dot state, and handles video play/pause */
+            function updateSlider() {
+                const offset = -currentIndex * 100;
+                track.style.transform = `translateX(${offset}%)`;
+
+                // 1. Update dots
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === currentIndex);
+                });
+
+                // 2. Handle Videos: Pause all, Play the current one.
+                slides.forEach((slide, index) => {
+                    const video = slide.querySelector('video');
+                    if (video) {
+                        if (index === currentIndex) {
+                            // Current slide: Try to play video
+                            video.play().catch(error => {
+                                // Catch autoplay policy errors (e.g., user interaction needed)
+                                console.log("Autoplay blocked for video:", error.name);
+                                // The controls attribute will allow the user to manually start it.
+                            });
+                        } else {
+                            // Non-current slide: Pause and rewind video
+                            video.pause();
+                            video.currentTime = 0;
+                        }
+                    }
+                });
+            }
+
+            /** Moves the slider to a specific index */
+            function moveToSlide(index) {
+                currentIndex = (index + slideCount) % slideCount;
+                updateSlider();
+                resetAutoplay();
+            }
+
+            /** Moves the slider to the next slide */
+            function nextSlide() {
+                moveToSlide(currentIndex + 1);
+            }
+
+            /** Moves the slider to the previous slide */
+            function prevSlide() {
+                moveToSlide(currentIndex - 1);
+            }
+
+            /** Starts or resets the autoplay timer */
+            function resetAutoplay() {
+                if (autoPlayTimer) clearInterval(autoPlayTimer);
+                if (interval > 0) {
+                    autoPlayTimer = setInterval(nextSlide, interval);
+                }
+            }
+
+            // 2. Attach Controls
+            if (prevButton) prevButton.addEventListener('click', prevSlide);
+            if (nextButton) nextButton.addEventListener('click', nextSlide);
+
+            // 3. Handle Autoplay and Initial State
+            // We need to wait for the first slide's video (if it exists) to be initialized
+            setTimeout(() => {
+                updateSlider(); // Set initial state and start/pause initial media
+                if (interval > 0) {
+                    resetAutoplay();
+                    // Pause autoplay when mouse hovers over the container
+                    container.addEventListener('mouseenter', () => clearInterval(autoPlayTimer));
+                    container.addEventListener('mouseleave', resetAutoplay);
+                }
+            }, 100); // Small delay to ensure browser parsed all elements
         }
 
-        // Small helper: toggle mobile menu
+        // --- Page Navigation and Initialization ---
         document.addEventListener('DOMContentLoaded', function () {
+            // Mobile Menu Toggle
             const btn = document.getElementById('mobile-menu-button');
             const menu = document.getElementById('mobile-menu');
             if (btn && menu) {
@@ -797,13 +987,9 @@
                     btn.classList.toggle('is-active');
                     menu.classList.toggle('is-active');
                 });
-
-                // Bulma's default behavior is to hide on small screens. The original HTML had
-                // a dedicated mobile menu div that was hidden/shown. With Bulma, we simply
-                // use the `navbar-burger` and `navbar-menu` classes.
             }
 
-            // Page Navigation Logic (simulating old data-page behavior with Bulma classes)
+            // Page Navigation Logic
             const navLinks = document.querySelectorAll('.nav-link');
             const pageContents = document.querySelectorAll('.page-content');
 
@@ -814,15 +1000,8 @@
 
                     // Update active state in navigation
                     navLinks.forEach(nav => {
-                        nav.classList.remove('is-active', 'active', 'text-gray-900', 'text-gray-600');
-                        nav.classList.add('text-gray-600');
-                        // In Bulma, just toggling `is-active` works for navbar items
-                        if (nav.classList.contains('navbar-item')) {
-                            nav.classList.remove('is-active');
-                        }
+                        nav.classList.remove('is-active');
                     });
-
-                    // Set active link for the current page
                     e.currentTarget.classList.add('is-active');
 
                     // Hide all page contents
@@ -841,12 +1020,73 @@
                         btn.classList.remove('is-active');
                         menu.classList.remove('is-active');
                     }
+
+                    // Re-initialize sliders when switching pages
+                    // This ensures the current slide logic (including video play/pause) is triggered immediately.
+                    initializeSlider('hero-slider', 5000);
+                    initializeSlider('slider-innovator', 8000);
+
+                    // Scroll to top of the page content
+                    document.getElementById('main').scrollIntoView({ behavior: 'smooth' });
                 });
             });
 
-            // Initial setup to ensure Home page is visible
+            // Initial setup: Ensure Home page is visible and Sliders are initialized
             document.getElementById('page-home').classList.remove('is-hidden');
+            // Initialize both sliders on page load
+            initializeSlider('hero-slider', 5000);
+            initializeSlider('slider-innovator', 8000);
         });
+
+        // Enquiry Form Success Handler (using mailto link)
+        function showEnquirySuccess() {
+            const successMessage = document.getElementById('enquiry-success');
+            const form = document.getElementById('enquiry-form');
+
+            if (successMessage && form) {
+                const formData = new FormData(form);
+
+                // Get selected interests
+                const interests = [];
+                if (document.getElementById('interest-school').checked) interests.push('Transform my school with a full STEAM program');
+                if (document.getElementById('interest-hub').checked) interests.push('Enroll my child in specialized courses at a Learning Hub');
+                if (document.getElementById('interest-kit').checked) interests.push('Purchase an innovative "My Robo Box" for home learning');
+                if (document.getElementById('interest-general').checked) interests.push('General Inquiry about our technologies');
+
+                // Create email content
+                const subject = 'New Enquiry from ' + (formData.get('name') || 'Unknown');
+                const body = [
+                    'You have received a new enquiry from the Divith Roboverse website:',
+                    '',
+                    'Full Name: ' + (formData.get('name') || 'N/A'),
+                    'Organization/City: ' + (formData.get('organization') || 'N/A'),
+                    'Phone: ' + (formData.get('phone') || 'N/A'),
+                    'Email: ' + (formData.get('email') || 'N/A'),
+                    'Interests: ' + (interests.length ? interests.join('; ') : 'None Specified'),
+                    '',
+                    '--- User Message ---',
+                    formData.get('message') || '[No specific message]',
+                    '----------------------',
+                ].join('\n');
+
+                // Create mailto link
+                const mailtoLink = 'mailto:divithroboversetechnologies@gmail.com?subject=' +
+                                  encodeURIComponent(subject) + '&body=' +
+                                  encodeURIComponent(body);
+
+                // Open email client
+                window.location.href = mailtoLink;
+
+                // Reset the form and show success message
+                form.reset();
+                successMessage.classList.remove('is-hidden');
+
+                // Hide the message after 7 seconds
+                setTimeout(() => {
+                    successMessage.classList.add('is-hidden');
+                }, 7000);
+            }
+        }
     </script>
 </body>
 </html>
