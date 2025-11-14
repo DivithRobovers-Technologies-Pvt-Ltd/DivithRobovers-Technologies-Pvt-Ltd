@@ -1,0 +1,614 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DivithRoboverse</title>
+    <meta name="description"
+        content="DivithRoboverse Technologies Pvt Ltd - Hands-on Robotics, AI, and STEAM programs for schools and learners. Learn today, lead tomorrow." />
+    <meta name="keywords"
+        content="Robotics, AI, STEAM, Education, Coding, Drones, Innovation Labs, DivithRoboverse, Technology, Learning, School Integration, At-Home Learning, Future Skills" />
+    <meta name="author" content="DivithRoboverse Technologies Pvt Ltd" />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:title" content="Divith Roboverse Technologies - Engineering Tomorrow, Today" />
+    <meta property="og:description"
+        content="Hands-on Robotics, AI, and STEAM programs for schools and learners. Learn today, lead tomorrow." />
+    <meta property="og:image"
+        content="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/refs/heads/main/asserts/logo/DivithRobovers.png" />
+    <meta property="og:url" content="https://divithroboverse.com/" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Divith Roboverse Technologies - Engineering Tomorrow, Today" />
+    <meta name="twitter:description"
+        content="Hands-on Robotics, AI, and STEAM programs for schools and learners. Learn today, lead tomorrow." />
+    <meta name="twitter:image"
+        content="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/refs/heads/main/asserts/logo/DivithRobovers.png" />
+
+    <link rel="icon"
+        href="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/refs/heads/main/asserts/logo/DivithRobovers.png"
+        type="image/png" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body>
+    <nav class="fixed top-0 left-0 w-full bg-white shadow z-40">
+        <div class="max-w-6xl mx-auto flex items-center justify-between px-4 py-2">
+            <div class="flex items-center">
+                <a href="index.html" class="flex items-center" aria-label="Go to homepage">
+                    <img src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/refs/heads/main/asserts/Images/Logo/logo.png"
+                        alt="Divith Roboverse Logo" class="h-10 w-auto" />
+                </a>
+                <button class="ml-4 flex flex-col gap-1.5 md:hidden" id="mobile-menu-button" aria-label="Open menu">
+                    <span class="w-6 h-0.5 bg-blue-500"></span>
+                    <span class="w-6 h-0.5 bg-blue-500"></span>
+                    <span class="w-6 h-0.5 bg-blue-500"></span>
+                </button>
+            </div>
+            <div id="navbar-menu" class="hidden md:flex gap-6">
+                <a href="index.html" class="text-blue-600 font-semibold border-b-2 border-blue-600 pb-1">Home</a>
+                <a href="services.html" class="hover:text-blue-600">Services</a>
+                <a href="media.html" class="hover:text-blue-600">Media</a>
+                <a href="about.html" class="hover:text-blue-600">About Us</a>
+                <a href="contact.html" class="hover:text-blue-600">Contact</a>
+            </div>
+        </div>
+    </nav>
+    <!-- Mobile Menu  -->
+    <div id="mobile-menu" class="hidden fixed top-0 left-0 w-full h-full bg-white z-50 flex flex-col">
+        <div class="flex items center justify-between px-4 py-2 border-b">
+            <a href="index.html" class="flex items-center" aria-label="Go to homepage">
+                <img src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/refs/heads/main/asserts/Images/Logo/logo.png"
+                    alt="Divith Roboverse Logo" class="h-10 w-auto" />
+            </a>
+            <button id="mobile-menu-close" aria-label="Close menu">
+                <svg class="w-6 h-6 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                    </path>
+                </svg>
+            </button>
+        </div>
+        <div class="flex flex-col mt-4 px-4 gap-4">
+            <a href="index.html" class="text-blue-600 font-semibold border-b-2 border-blue-600 pb-1">Home</a>
+            <a href="services.html" class="hover:text-blue-600">Services</a>
+            <a href="media.html" class="hover:text-blue-600">Media</a>
+            <a href="about.html" class="hover:text-blue-600">About Us</a>
+            <a href="contact.html" class="hover:text-blue-600">Contact</a>
+        </div>
+    </div>
+    <script>
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.remove('hidden');
+        });
+        mobileMenuClose.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+        });
+    </script>
+    
+    <section id="hero-slider" class="relative w-full h-[400px] md:h-[600px] mt-16 flex items-center justify-center overflow-hidden" aria-label="Hero slider">
+        <div class="absolute inset-0 flex transition-transform duration-700 ease-in-out" id="hero-slider-track">
+            <!-- Slide 1 -->
+            <div class="min-w-full h-full relative">
+                <img src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/refs/heads/main/asserts/Images/1.png" alt="Robotics Education" class="w-full h-full object-cover" />
+                <div class="absolute inset-0 bg-black/60 flex items-center justify-center">
+                    <div class="text-center text-white px-4">
+                        <h2 class="text-3xl md:text-5xl font-bold mb-2">Empowering Young Minds</h2>
+                        <p class="text-lg md:text-2xl mb-4">Discover the world of robotics and innovation</p>
+                        <a href="#" class="inline-block bg-blue-500 text-white px-6 py-3 rounded-full text-base md:text-lg font-semibold mt-2 nav-link" data-page="page-services" aria-label="Explore Our Programs">
+                            <i class="fas fa-rocket mr-2"></i>Explore Our Programs
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Slide 2 -->
+            <div class="min-w-full h-full relative">
+                <img src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/refs/heads/main/asserts/Images/2.png" alt="AI Learning" class="w-full h-full object-cover" />
+                <div class="absolute inset-0 bg-black/60 flex items-center justify-center">
+                    <div class="text-center text-white px-4">
+                        <h2 class="text-3xl md:text-5xl font-bold mb-2">Learn AI & Python</h2>
+                        <p class="text-lg md:text-2xl mb-4">Master the technologies of tomorrow</p>
+                        <a href="#" class="inline-block bg-green-500 text-white px-6 py-3 rounded-full text-base md:text-lg font-semibold mt-2 nav-link" data-page="page-services" aria-label="Start Learning Today">
+                            <i class="fas fa-brain mr-2"></i>Start Learning Today
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Slide 3 -->
+            <div class="min-w-full h-full relative">
+                <img src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/refs/heads/main/asserts/Images/3.png" alt="Innovation Labs" class="w-full h-full object-cover" />
+                <div class="absolute inset-0 bg-black/60 flex items-center justify-center">
+                    <div class="text-center text-white px-4">
+                        <h2 class="text-3xl md:text-5xl font-bold mb-2">Innovation Labs</h2>
+                        <p class="text-lg md:text-2xl mb-4">Transform your school into a hub of creativity</p>
+                        <a href="#" class="inline-block bg-orange-500 text-white px-6 py-3 rounded-full text-base md:text-lg font-semibold mt-2 nav-link" data-page="page-about" aria-label="Partner With Us">
+                            <i class="fas fa-lightbulb mr-2"></i>Partner With Us
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Slide 4 -->
+            <div class="min-w-full h-full relative">
+                <img src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/refs/heads/main/asserts/Images/4.png" alt="Innovation Labs" class="w-full h-full object-cover" />
+                <div class="absolute inset-0 bg-black/60 flex items-center justify-center">
+                    <div class="text-center text-white px-4">
+                        <h2 class="text-3xl md:text-5xl font-bold mb-2">Innovation Labs</h2>
+                        <p class="text-lg md:text-2xl mb-4">Transform your school into a hub of creativity</p>
+                        <a href="#" class="inline-block bg-orange-500 text-white px-6 py-3 rounded-full text-base md:text-lg font-semibold mt-2 nav-link" data-page="page-about" aria-label="Partner With Us">
+                            <i class="fas fa-lightbulb mr-2"></i>Partner With Us
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Slide 5 -->
+            <div class="min-w-full h-full relative">
+                <img src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/refs/heads/main/asserts/Images/5.png" alt="Innovation Labs" class="w-full h-full object-cover" />
+                <div class="absolute inset-0 bg-black/60 flex items-center justify-center">
+                    <div class="text-center text-white px-4">
+                        <h2 class="text-3xl md:text-5xl font-bold mb-2">Innovation Labs</h2>
+                        <p class="text-lg md:text-2xl mb-4">Transform your school into a hub of creativity</p>
+                        <a href="#" class="inline-block bg-orange-500 text-white px-6 py-3 rounded-full text-base md:text-lg font-semibold mt-2 nav-link" data-page="page-about" aria-label="Partner With Us">
+                            <i class="fas fa-lightbulb mr-2"></i>Partner With Us
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Slide 6 -->
+            <div class="min-w-full h-full relative">
+                <img src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/refs/heads/main/asserts/Images/6.png" alt="Innovation Labs" class="w-full h-full object-cover" />
+                <div class="absolute inset-0 bg-black/60 flex items-center justify-center">
+                    <div class="text-center text-white px-4">
+                        <h2 class="text-3xl md:text-5xl font-bold mb-2">Innovation Labs</h2>
+                        <p class="text-lg md:text-2xl mb-4">Transform your school into a hub of creativity</p>
+                        <a href="#" class="inline-block bg-orange-500 text-white px-6 py-3 rounded-full text-base md:text-lg font-semibold mt-2 nav-link" data-page="page-about" aria-label="Partner With Us">
+                            <i class="fas fa-lightbulb mr-2"></i>Partner With Us
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Slider Controls -->
+        <button class="absolute left-4 top-1/2 -translate-y-1/2 bg-white/30 hover:bg-white/80 text-gray-800 rounded-full w-12 h-12 flex items-center justify-center text-2xl z-10" aria-label="Previous slide" id="hero-prev">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 18l-6-6 6-6"></path>
+            </svg>
+        </button>
+        <button class="absolute right-4 top-1/2 -translate-y-1/2 bg-white/30 hover:bg-white/80 text-gray-800 rounded-full w-12 h-12 flex items-center justify-center text-2xl z-10" aria-label="Next slide" id="hero-next">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 6l6 6-6 6"></path>
+            </svg>
+        </button>
+        <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-10" id="hero-dots" aria-hidden="true"></div>
+    </section>
+
+    <!-- About Content Section -->
+    <section id="about-content" class="py-16 lg:py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Main Intro -->
+            <div class="text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900">DivithRoboverse: More Than EdTech, It’s a Mindset</h2>
+                <p class="mt-4 text-lg text-gray-600 max-w-4xl mx-auto">We are DivithRoboverse Technologies Pvt Ltd, not just educators, but architects of the next generation of engineers and entrepreneurs. With over a decade of industry expertise, we specialize in delivering the essential technology skills that transition students from passive learners to active creators.</p>
+            </div>
+
+            <!-- Core Belief, Vision, Mission -->
+            <div class="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-start">
+                <div class="bg-gray-50 p-8 rounded-2xl shadow-sm">
+                    <h3 class="text-2xl font-bold text-blue-600">Our Core Belief</h3>
+                    <p class="mt-4 text-gray-700">In a world rapidly defined by AI and automation, proficiency in these technologies is not optional—it is a non-negotiable skill for future success. Our mission is to provide the systems and knowledge that prepare students to not just navigate, but to lead the dynamic future.</p>
+                </div>
+                <div class="space-y-8">
+                    <div class="bg-gray-50 p-8 rounded-2xl shadow-sm">
+                        <h3 class="text-2xl font-bold text-green-600">Vision</h3>
+                        <p class="mt-4 text-gray-700">”To empower a smarter, more connected world where autonomous systems, intelligent software and flying-machines blend seamlessly with everyday life — enabling everyone (from kids to enterprises) to imagine, build and deploy future technologies with confidence.”</p>
+                    </div>
+                    <div class="bg-gray-50 p-8 rounded-2xl shadow-sm">
+                        <h3 class="text-2xl font-bold text-orange-600">Mission</h3>
+                        <p class="mt-4 text-gray-700">“Our mission is to democratize advanced technology: enabling learners, engineers and enterprises to create intelligent robots, connected devices and aerial systems — with intuitive tools, robust platforms and open educational pathways — so they can address real-world challenges, from automation to exploration.”</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Training Images Gallery -->
+    <section id="training-gallery" class="py-16 lg:py-24 bg-gray-50 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <!-- Content Side -->
+                <div class="text-center lg:text-left">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Glimpses of Our Training</h2>
+                    <p class="mt-4 text-lg text-gray-600">See our students in action, turning ideas into reality. Our hands-on approach ensures that learners are not just watching, but actively building, coding, and innovating.</p>
+                    <ul class="mt-6 space-y-2 text-gray-700 text-left max-w-md mx-auto lg:mx-0">
+                        <li class="flex items-start"><span class="text-green-500 mr-2 mt-1">✔</span><span><strong>Collaborative Projects:</strong> Students work in teams to solve real-world problems.</span></li>
+                        <li class="flex items-start"><span class="text-green-500 mr-2 mt-1">✔</span><span><strong>Expert Guidance:</strong> Certified instructors provide personalized support.</span></li>
+                        <li class="flex items-start"><span class="text-green-500 mr-2 mt-1">✔</span><span><strong>Cutting-Edge Tech:</strong> Access to the latest in robotics, AI, and drone technology.</span></li>
+                    </ul>
+                </div>
+                <!-- Slider Side -->
+                <div id="gallery-slider" class="relative w-full h-[450px] rounded-2xl shadow-2xl overflow-hidden" aria-label="Training gallery slider">
+                    <div class="absolute inset-0 flex transition-transform duration-700 ease-in-out" id="gallery-slider-track">
+                        <!-- Slide 1 -->
+                        <div class="min-w-full h-full relative">
+                            <img src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/main/asserts/Images/Training%20Images/IMG_5706.JPG" alt="Training session in progress" class="w-full h-full object-cover" />
+                        </div>
+                        <!-- Slide 2 -->
+                        <div class="min-w-full h-full relative">
+                            <img src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/main/asserts/Images/Training%20Images/IMG_5714.JPG" alt="Students collaborating on a project" class="w-full h-full object-cover" />
+                        </div>
+                        <!-- Slide 3 -->
+                        <div class="min-w-full h-full relative">
+                            <img src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/main/asserts/Images/Training%20Images/IMG_5745.JPG" alt="Hands-on robotics learning" class="w-full h-full object-cover" />
+                        </div>
+                        <!-- Slide 4 -->
+                        <div class="min-w-full h-full relative">
+                            <img src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/main/asserts/Images/Training%20Images/IMG_5755.JPG" alt="Coding and development workshop" class="w-full h-full object-cover" />
+                        </div>
+                        <!-- Slide 5 -->
+                        <div class="min-w-full h-full relative">
+                            <img src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/main/asserts/Images/Training%20Images/IMG_5882.JPG" alt="Building complex robot models" class="w-full h-full object-cover" />
+                        </div>
+                        <!-- Slide 6 -->
+                        <div class="min-w-full h-full relative">
+                            <img src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/main/asserts/Images/Training%20Images/IMG_5890.JPG" alt="Students presenting their creations" class="w-full h-full object-cover" />
+                        </div>
+                        <!-- Slide 7 -->
+                        <div class="min-w-full h-full relative">
+                            <img src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/main/asserts/Images/Training%20Images/IMG_5960.JPG" alt="Engaged students in a tech lab" class="w-full h-full object-cover" />
+                        </div>
+                        <!-- Slide 8 -->
+                        <div class="min-w-full h-full relative">
+                            <img src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/main/asserts/Images/Training%20Images/IMG_6128.JPG" alt="Learning about electronic components" class="w-full h-full object-cover" />
+                        </div>
+                        <!-- Slide 9 -->
+                        <div class="min-w-full h-full relative">
+                            <img src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/main/asserts/Images/Training%20Images/IMG_6208.JPG" alt="Drone technology workshop" class="w-full h-full object-cover" />
+                        </div>
+                        <!-- Slide 10 -->
+                        <div class="min-w-full h-full relative">
+                            <img src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/main/asserts/Images/Training%20Images/IMG_6278.JPG" alt="Interactive learning session" class="w-full h-full object-cover" />
+                        </div>
+                        <!-- Slide 11 -->
+                        <div class="min-w-full h-full relative">
+                            <img src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/main/asserts/Images/Training%20Images/IMG_6396.JPG" alt="Young innovators at work" class="w-full h-full object-cover" />
+                        </div>
+                        <!-- Slide 12 -->
+                        <div class="min-w-full h-full relative">
+                            <img src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/main/asserts/Images/Training%20Images/IMG_6410.JPG" alt="A student focused on a robotics task" class="w-full h-full object-cover" />
+                        </div>
+                    </div>
+                    <!-- Slider Controls -->
+                    <button class="absolute left-3 top-1/2 -translate-y-1/2 bg-white/40 hover:bg-white/90 text-gray-800 rounded-full w-10 h-10 flex items-center justify-center text-xl z-10" aria-label="Previous slide" id="gallery-prev">
+                        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 18l-6-6 6-6"></path></svg>
+                    </button>
+                    <button class="absolute right-3 top-1/2 -translate-y-1/2 bg-white/40 hover:bg-white/90 text-gray-800 rounded-full w-10 h-10 flex items-center justify-center text-xl z-10" aria-label="Next slide" id="gallery-next">
+                        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 6l6 6-6 6"></path></svg>
+                    </button>
+                    <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10" id="gallery-dots" aria-hidden="true"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Section -->
+    <section class="relative py-24 md:py-32 bg-cover bg-center bg-fixed" style="background-image: url('https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/main/asserts/Images/4.png');">
+        <div class="absolute inset-0 bg-blue-900/80"></div>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12">The DivithRoboverse Impact (Data-Driven)</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <div class="bg-white/10 p-8 rounded-2xl backdrop-blur-sm">
+                    <p class="text-5xl lg:text-6xl font-extrabold text-cyan-300">300,000+</p>
+                    <p class="mt-2 text-xl font-semibold">Students Equipped</p>
+                    <p class="mt-1 text-cyan-200/80">with practical, real-world tech skills.</p>
+                </div>
+                <div class="bg-white/10 p-8 rounded-2xl backdrop-blur-sm">
+                    <p class="text-5xl lg:text-6xl font-extrabold text-cyan-300">200+</p>
+                    <p class="mt-2 text-xl font-semibold">Schools Integrated</p>
+                    <p class="mt-1 text-cyan-200/80">with our advanced curriculum.</p>
+                </div>
+            </div>
+            <div class="mt-12 max-w-4xl mx-auto bg-white/10 p-8 rounded-2xl backdrop-blur-sm">
+                <h3 class="text-2xl font-bold text-cyan-300">Our Proprietary Advantage</h3>
+                <p class="mt-4 text-lg">We own our complete product line, software, and curriculum—a comprehensive ecosystem built on over 10 years of dedicated investment, industry experience, and continuous refinement.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Gallery Section -->
+    <section id="video-gallery" class="py-16 lg:py-24 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Our Work in Action</h2>
+                <p class="mt-4 text-lg text-gray-600">Watch how we're shaping the future of technology education.</p>
+            </div>
+            <div id="video-slider" class="relative w-full aspect-video rounded-2xl shadow-2xl overflow-hidden bg-black" aria-label="Video gallery slider">
+                <div class="absolute inset-0 flex transition-transform duration-700 ease-in-out" id="video-slider-track">
+                    <!-- Video Slides -->
+                    <div class="min-w-full h-full relative"><video class="w-full h-full" controls><source src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/main/asserts/Images/Videos/1.MP4" type="video/mp4">Your browser does not support the video tag.</video></div>
+                    <div class="min-w-full h-full relative"><video class="w-full h-full" controls><source src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/main/asserts/Images/Videos/2.MP4" type="video/mp4">Your browser does not support the video tag.</video></div>
+                    <div class="min-w-full h-full relative"><video class="w-full h-full" controls><source src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/main/asserts/Images/Videos/3.MP4" type="video/mp4">Your browser does not support the video tag.</video></div>
+                    <div class="min-w-full h-full relative"><video class="w-full h-full" controls><source src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/main/asserts/Images/Videos/4.MP4" type="video/mp4">Your browser does not support the video tag.</video></div>
+                    <div class="min-w-full h-full relative"><video class="w-full h-full" controls><source src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/main/asserts/Images/Videos/5.MP4" type="video/mp4">Your browser does not support the video tag.</video></div>
+                    <div class="min-w-full h-full relative"><video class="w-full h-full" controls><source src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/main/asserts/Images/Videos/6.MP4" type="video/mp4">Your browser does not support the video tag.</video></div>
+                    <div class="min-w-full h-full relative"><video class="w-full h-full" controls><source src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/main/asserts/Images/Videos/7.MP4" type="video/mp4">Your browser does not support the video tag.</video></div>
+                    <div class="min-w-full h-full relative"><video class="w-full h-full" controls><source src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/main/asserts/Images/Videos/8.MP4" type="video/mp4">Your browser does not support the video tag.</video></div>
+                    <div class="min-w-full h-full relative"><video class="w-full h-full" controls><source src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/main/asserts/Images/Videos/9.MP4" type="video/mp4">Your browser does not support the video tag.</video></div>
+                    <div class="min-w-full h-full relative"><video class="w-full h-full" controls><source src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/main/asserts/Images/Videos/10.MP4" type="video/mp4">Your browser does not support the video tag.</video></div>
+                </div>
+                <!-- Slider Controls -->
+                <button class="absolute left-3 top-1/2 -translate-y-1/2 bg-white/40 hover:bg-white/90 text-gray-800 rounded-full w-10 h-10 flex items-center justify-center text-xl z-10" aria-label="Previous video" id="video-prev">
+                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 18l-6-6 6-6"></path></svg>
+                </button>
+                <button class="absolute right-3 top-1/2 -translate-y-1/2 bg-white/40 hover:bg-white/90 text-gray-800 rounded-full w-10 h-10 flex items-center justify-center text-xl z-10" aria-label="Next video" id="video-next">
+                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 6l6 6-6 6"></path></svg>
+                </button>
+                <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10" id="video-dots" aria-hidden="true"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Logos Section -->
+    <section id="clients" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">Trusted by Leading Educational Institutions</h2>
+            <div class="relative h-24 overflow-hidden">
+                <div class="absolute top-0 left-0 flex items-center h-full animate-scroll">
+                    <!-- Client Logos -->
+                    <img src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/main/asserts/Images/Client_logo/1.jpg" alt="Client 1" class="h-16 mx-8 object-contain">
+                    <img src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/main/asserts/Images/Client_logo/2.JPG" alt="Client 2" class="h-16 mx-8 object-contain">
+                    <img src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/main/asserts/Images/Client_logo/3.JPG" alt="Client 3" class="h-16 mx-8 object-contain">
+                    <img src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/main/asserts/Images/Client_logo/4.JPG" alt="Client 4" class="h-16 mx-8 object-contain">
+                    <img src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/main/asserts/Images/Client_logo/5.JPG" alt="Client 5" class="h-16 mx-8 object-contain">
+                    <img src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/main/asserts/Images/Client_logo/6.JPG" alt="Client 6" class="h-16 mx-8 object-contain">
+                    <img src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/main/asserts/Images/Client_logo/7.JPG" alt="Client 7" class="h-16 mx-8 object-contain">
+                    
+                    <!-- Duplicated for seamless scroll -->
+                    <img src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/main/asserts/Images/Client_logo/8.jpg" alt="Client 8" class="h-16 mx-8 object-contain">
+                    <img src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/main/asserts/Images/Client_logo/9.JPG" alt="Client 9" class="h-16 mx-8 object-contain">
+                    <img src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/main/asserts/Images/Client_logo/10.PNG" alt="Client 10" class="h-16 mx-8 object-contain">
+                    <img src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/main/asserts/Images/Client_logo/11.PNG" alt="Client 11" class="h-16 mx-8 object-contain">
+                    <img src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/main/asserts/Images/Client_logo/12.PNG" alt="Client 12" class="h-16 mx-8 object-contain">
+                    <img src="https://raw.githubusercontent.com/DivithRobovers-Technologies-Pvt-Ltd/DivithRobovers-Technologies-Pvt-Ltd.github.io/main/asserts/Images/Client_logo/13.JPG" alt="Client 13" class="h-16 mx-8 object-contain">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-scroll {
+            animation: scroll 40s linear infinite;
+            display: flex;
+            width: 200%; /* Needs to be at least double the container width */
+        }
+    </style>
+
+    <footer class="bg-gray-900 text-gray-200 py-12">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="text-2xl md:text-3xl font-bold text-center mb-4">Connect Directly with the DivithRoboverse</h2>
+            <p class="text-center text-gray-400 mb-8">Our specialists are ready to provide detailed information tailored to your specific needs.</p>
+            <div class="flex flex-col md:flex-row gap-8 justify-center mb-8">
+                <div class="bg-gray-800 rounded-lg p-6 flex-1 text-center">
+                    <h3 class="text-lg font-semibold mb-2">Call Our Specialists</h3>
+                    <a href="tel:8904552934" class="text-blue-400 text-xl font-bold block mb-2">8904552934</a>
+                    <p class="text-sm text-gray-400">Immediate support for schools and course inquiries.</p>
+                </div>
+                <div class="bg-gray-800 rounded-lg p-6 flex-1 text-center">
+                    <h3 class="text-lg font-semibold mb-2">General Inquiries (WhatsApp)</h3>
+                    <a href="http://wa.me/918904552934" target="_blank" rel="noopener noreferrer" class="text-green-400 text-xl font-bold block mb-2">Click to Chat</a>
+                    <p class="text-sm text-gray-400">All other questions about courses, products, or events.</p>
+                </div>
+            </div>
+            <div class="text-center text-gray-400 mb-8">
+                <h3 class="text-lg font-semibold mb-2">Corporate Headquarters</h3>
+                <p>3-35, Gollapalli, Near KIA India Private Limited, Penukonda,<br />Anantapur (Dist), Andhra Pradesh - 515164</p>
+            </div>
+            <div class="flex justify-center gap-6 mb-8">
+                <a href="https://www.linkedin.com/company/divithroboverse-technologies/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="text-gray-400 hover:text-blue-500 text-2xl">
+                    <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4.98 3.5C4.98 4.88 3.86 6 2.48 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 8.5h4v12h-4zM8.5 8.5h3.84v1.64h.05c.53-1 1.82-2.06 3.74-2.06 4 0 4.73 2.63 4.73 6.05V20.5h-4v-5.6c0-1.34-.02-3.07-1.87-3.07-1.88 0-2.17 1.47-2.17 2.98V20.5h-4z"/>
+                    </svg>
+                </a>
+                <a href="https://www.facebook.com/share/17WWsq9wn5/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="text-gray-400 hover:text-blue-500 text-2xl">
+                    <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M22 12a10 10 0 10-11.5 9.9v-7H8v-3h2.5V9.5c0-2.5 1.5-3.9 3.7-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.8-1.6 1.6V12H21l-1 3.9h-3v7A10 10 0 0022 12z"/>
+                    </svg>
+                </a>
+                <a href="http://www.youtube.com/@DIVITHROBOVERSETECHNOLOGIES" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="text-gray-400 hover:text-red-500 text-2xl">
+                    <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M23.5 6.2s-.2-1.6-.8-2.3c-.8-.9-1.7-.9-2.1-1C16.3 2 12 2 12 2s-4.3 0-8.6.9c-.4.1-1.3.1-2.1 1C.2 4.6 0 6.2 0 6.2S-.1 8.1.1 10v1.9c.2 1.9.2 3.8.2 3.8s.2 1.6.8 2.3c.8.9 1.9.9 2.4 1 1.8.2 7.8.9 8.9.9s4.3 0 8.6-.9c.4-.1 1.3-.1 2.1-1 .6-.7.8-2.3.8-2.3s.2-1.9.2-3.8V10c0-1.9-.2-3.8-.2-3.8zM9.8 15.2V8.8l6.2 3.2-6.2 3.2z"/>
+                    </svg>
+                </a>
+                <a href="https://www.instagram.com/invites/contact/?igsh=1brtnm6wc4q2&utm_content=zew5o5e" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="text-gray-400 hover:text-pink-500 text-2xl">
+                    <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm5 6.2A4.8 4.8 0 1016.8 13 4.8 4.8 0 0012 8.2zM18.4 6.1a1.1 1.1 0 11-1.1-1.1 1.1 1.1 0 011.1 1.1z"/>
+                    </svg>
+                </a>
+            </div>
+            <div class="text-center text-gray-500 text-xs border-t border-gray-700 pt-6">
+                &copy; <script>document.write(new Date().getFullYear())</script> Divith Roboverse Technologies Pvt Ltd. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        (function () {
+            // Generic Slider Function
+            function setupSlider(sliderId, options) {
+                const sliderRoot = document.getElementById(sliderId);
+                if (!sliderRoot) return;
+
+                const track = sliderRoot.querySelector(options.track);
+                const slides = Array.from(track.children);
+                const prevBtn = sliderRoot.querySelector(options.prev);
+                const nextBtn = sliderRoot.querySelector(options.next);
+                const dotsContainer = sliderRoot.querySelector(options.dots);
+
+                let current = 0;
+                const intervalMs = options.interval || 5000;
+                let autoplayId = null;
+
+                function createDots() {
+                    if (!dotsContainer) return;
+                    dotsContainer.innerHTML = ''; // Clear existing dots
+                    slides.forEach((_, i) => {
+                        const btn = document.createElement('button');
+                        btn.className = 'w-3 h-3 rounded-full bg-white/60 transition-colors';
+                        btn.setAttribute('aria-label', `Go to slide ${i + 1}`);
+                        btn.addEventListener('click', () => goTo(i, true));
+                        dotsContainer.appendChild(btn);
+                    });
+                }
+
+                function updateDots(index) {
+                    if (!dotsContainer) return;
+                    Array.from(dotsContainer.children).forEach((b, i) => {
+                        b.classList.toggle('bg-blue-500', i === index);
+                        b.classList.toggle('bg-white/60', i !== index);
+                    });
+                }
+
+                function goTo(index, fromClick = false) {
+                    index = ((index % slides.length) + slides.length) % slides.length;
+                    track.style.transform = `translateX(-${index * 100}%)`;
+                    current = index;
+                    updateDots(current);
+                    if (fromClick) {
+                        startAutoplay(); // Reset autoplay timer on manual interaction
+                    }
+                }
+
+                function startAutoplay() {
+                    stopAutoplay();
+                    autoplayId = setInterval(() => goTo(current + 1), intervalMs);
+                }
+
+                function stopAutoplay() {
+                    clearInterval(autoplayId);
+                }
+
+                // Init
+                createDots();
+                updateDots(0);
+                startAutoplay();
+
+                if (prevBtn) prevBtn.addEventListener('click', () => goTo(current - 1, true));
+                if (nextBtn) nextBtn.addEventListener('click', () => goTo(current + 1, true));
+                sliderRoot.addEventListener('mouseenter', stopAutoplay);
+                sliderRoot.addEventListener('mouseleave', startAutoplay);
+            }
+
+            // Setup Hero Slider
+            const track = document.getElementById('hero-slider-track');
+            if (!track) return;
+            const slides = Array.from(track.children);
+            const prev = document.getElementById('hero-prev');
+            const next = document.getElementById('hero-next');
+            const dotsContainer = document.getElementById('hero-dots');
+            const sliderRoot = document.getElementById('hero-slider');
+
+            let current = 0;
+            const intervalMs = 5000;
+            let autoplayId = null;
+
+            function createDots() {
+                if (!dotsContainer) return;
+                slides.forEach((_, i) => {
+                    const btn = document.createElement('button');
+                    btn.className = 'w-3 h-3 rounded-full bg-white/60';
+                    btn.setAttribute('aria-label', `Go to slide ${i + 1}`);
+                    btn.dataset.index = i;
+                    btn.addEventListener('click', () => goTo(i));
+                    dotsContainer.appendChild(btn);
+                });
+            }
+
+            function updateDots(index) {
+                if (!dotsContainer) return;
+                Array.from(dotsContainer.children).forEach((b, i) => {
+                    if (i === index) {
+                        b.classList.add('bg-blue-500');
+                        b.classList.remove('bg-white/60');
+                    } else {
+                        b.classList.remove('bg-blue-500');
+                        b.classList.add('bg-white/60');
+                    }
+                });
+            }
+
+            function goTo(index) {
+                index = ((index % slides.length) + slides.length) % slides.length;
+                track.style.transform = `translateX(-${index * 100}%)`;
+                current = index;
+                updateDots(current);
+            }
+
+            function prevSlide() { goTo(current - 1); }
+            function nextSlide() { goTo(current + 1); }
+
+            function startAutoplay() {
+                stopAutoplay();
+                autoplayId = setInterval(() => {
+                    nextSlide();
+                }, intervalMs);
+            }
+
+            function stopAutoplay() {
+                if (autoplayId) {
+                    clearInterval(autoplayId);
+                    autoplayId = null;
+                }
+            }
+
+            // Init
+            createDots();
+            updateDots(0);
+
+            if (prev) prev.addEventListener('click', () => { prevSlide(); startAutoplay(); });
+            if (next) next.addEventListener('click', () => { nextSlide(); startAutoplay(); });
+
+            // Pause on hover/focus
+            if (sliderRoot) {
+                sliderRoot.addEventListener('mouseenter', stopAutoplay);
+                sliderRoot.addEventListener('mouseleave', startAutoplay);
+                sliderRoot.addEventListener('focusin', stopAutoplay);
+                sliderRoot.addEventListener('focusout', startAutoplay);
+            }
+
+            // Keyboard
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowLeft') prevSlide();
+                if (e.key === 'ArrowRight') nextSlide();
+            });
+
+            // Start autoplay
+            startAutoplay();
+
+            // Setup Gallery Slider
+            setupSlider('gallery-slider', {
+                track: '#gallery-slider-track',
+                prev: '#gallery-prev',
+                next: '#gallery-next',
+                dots: '#gallery-dots',
+                interval: 4000
+            });
+
+            // Setup Video Slider
+            setupSlider('video-slider', {
+                track: '#video-slider-track',
+                prev: '#video-prev',
+                next: '#video-next',
+                dots: '#video-dots',
+                interval: 8000 // Longer interval for videos
+            });
+        })();
+    </script>
+
+</body>
+
+</html>
